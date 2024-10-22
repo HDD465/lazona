@@ -1,0 +1,485 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrières - LAZONA</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .btn-primary:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .container {
+        width: 80%;
+        margin: 100px auto 2rem;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    h1, h2 {
+        color: var(--primary-color);
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .career-intro {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    
+    .career-benefits {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+    }
+    
+    .benefit-item {
+        flex-basis: calc(33% - 20px);
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .benefit-icon {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+    
+    .job-listings {
+        margin-bottom: 3rem;
+    }
+    
+    .job-card {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .job-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .job-title {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+    
+    .job-details {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    
+    .apply-btn {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .apply-btn:hover {
+        background-color: #1976D2;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-icons a {
+        font-size: 1.5rem;
+        color: white;
+        transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .language-selector {
+            order: 1;
+        }
+        
+        .auth-buttons {
+            order: 2;
+        }
+        
+        .container {
+            width: 95%;
+        }
+        
+        .benefit-item {
+            flex-basis: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button" data-translate="home">Accueil</a></li>
+                    <li><a href="simulateur.html" class="nav-button" data-translate="simulator">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button" data-translate="loans">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button" data-translate="investment">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button" data-translate="about">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button" data-translate="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn btn-primary" data-translate="login">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary" data-translate="signup">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 data-translate="careers_title">Carrières chez LAZONA</h1>
+        
+        <div class="career-intro">
+            <p data-translate="career_intro">Rejoignez LAZONA et participez à la révolution du prêt participatif. Nous recherchons des talents passionnés pour construire l'avenir de la finance.</p>
+        </div>
+        
+        <h2 data-translate="why_work_with_us">Pourquoi travailler avec nous ?</h2>
+        <div class="career-benefits">
+            <div class="benefit-item">
+                <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
+                <h3 data-translate="innovation">Innovation</h3>
+                <p data-translate="innovation_desc">Travaillez sur des projets de pointe dans le domaine de la Fintech</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                <h3 data-translate="team_spirit">Esprit d'équipe</h3>
+                <p data-translate="team_spirit_desc">Rejoignez une équipe dynamique et collaborative</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                <h3 data-translate="growth">Croissance</h3>
+                <p data-translate="growth_desc">Opportunités de développement professionnel et personnel</p>
+            </div>
+        </div>
+        
+        <h2 data-translate="open_positions">Postes ouverts</h2>
+        <div class="job-listings">
+            <div class="job-card">
+                <h3 class="job-title" data-translate="job_1_title">Développeur Full Stack</h3>
+                <div class="job-details">
+                    <span data-translate="job_1_location">Paris, France</span>
+                    <span data-translate="job_1_type">Temps plein</span>
+                </div>
+                <p data-translate="job_1_desc">Nous recherchons un développeur Full Stack expérimenté pour rejoindre notre équipe technique et contribuer au développement de notre plateforme de prêt participatif.</p>
+                <a href="#" class="apply-btn" data-translate="apply">Postuler</a>
+            </div>
+            
+            <div class="job-card">
+                <h3 class="job-title" data-translate="job_2_title">Analyste de risque</h3>
+                <div class="job-details">
+                    <span data-translate="job_2_location">Lyon, France</span>
+                    <span data-translate="job_2_type">Temps plein</span>
+                </div>
+                <p data-translate="job_2_desc">Rejoignez notre équipe d'analyse de risque pour évaluer les demandes de prêt et contribuer à la sécurité de notre plateforme.</p>
+                <a href="#" class="apply-btn" data-translate="apply">Postuler</a>
+            </div>
+            
+            <div class="job-card">
+                <h3 class="job-title" data-translate="job_3_title">Chargé de marketing digital</h3>
+                <div class="job-details">
+                    <span data-translate="job_3_location">Paris, France</span>
+                    <span data-translate="job_3_type">Temps plein</span>
+                </div>
+                <p data-translate="job_3_desc">Nous recherchons un expert en marketing digital pour développer et mettre en œuvre notre stratégie de croissance en ligne.</p>
+                <a href="#" class="apply-btn" data-translate="apply">Postuler</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="useful_links">Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="contact_us">Nous contacter</h3>
+                <p>Email: contact@lazona.fr</p>
+                <p>Tél: +33 1 23 45 67 89</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="follow_us">Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const translations = {
+        en: {
+            home: "Home",
+            simulator: "Simulator",
+            loans: "Our Loans",
+            investment: "Investment",
+            about: "About",
+            contact: "Contact",
+            login: "Login",
+            signup: "Sign Up",
+            careers_title: "Careers at LAZONA",
+            career_intro: "Join LAZONA and be part of the participatory lending revolution. We are looking for passionate talents to build the future of finance.",
+            why_work_with_us: "Why work with us?",
+            innovation: "Innovation",
+            innovation_desc: "Work on cutting-edge projects in the Fintech field",
+            team_spirit: "Team Spirit",
+            team_spirit_desc: "Join a dynamic and collaborative team",
+            growth: "Growth",
+            growth_desc: "Professional and personal development opportunities",
+            open_positions: "Open Positions",
+            job_1_title: "Full Stack Developer",
+            job_1_location: "Paris, France",
+            job_1_type: "Full-time",
+            job_1_desc: "We are looking for an experienced Full Stack Developer to join our technical team and contribute to the development of our participatory lending platform.",
+            job_2_title: "Risk Analyst",
+            job_2_location: "Lyon, France",
+            job_2_type: "Full-time",
+            job_2_desc: "Join our risk analysis team to evaluate loan applications and contribute to the security of our platform.",
+            job_3_title: "Digital Marketing Manager",
+            job_3_location: "Paris, France",
+            job_3_type: "Full-time",
+            job_3_desc: "We are looking for a digital marketing expert to develop and implement our online growth strategy.",
+            apply: "Apply",
+            useful_links: "Useful Links",
+            legal_notice: "Legal Notice",
+            privacy_policy: "Privacy Policy",
+            faq: "FAQ",
+            blog: "Blog",
+            contact_us: "Contact Us",
+            follow_us: "Follow Us"
+        },
+        // Add other languages here
+    };
+
+    function translatePage(lang) {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+    }
+
+    document.getElementById('language-select').addEventListener('change', (e) => {
+        translatePage(e.target.value);
+    });
+
+    // Initialize with French
+    translatePage('fr');
+});
+</script>
+
+</body></html>

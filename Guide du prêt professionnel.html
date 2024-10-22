@@ -1,0 +1,471 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide du prêt professionnel | LAZONA</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+        list-style-type: none;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 80px 20px 20px;
+    }
+    
+    h1 {
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .guide-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .guide-section {
+        margin-bottom: 2rem;
+    }
+    
+    .guide-section h2 {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .guide-section ul {
+        padding-left: 1.5rem;
+    }
+    
+    .cta-section {
+        background-color: #e9f5ff;
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+        text-align: center;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    
+    .cta-button:hover {
+        background-color: #1976D2;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .logo {
+            margin-left: 0;
+            margin-bottom: 1rem;
+        }
+        
+        nav.main-nav {
+            width: 100%;
+            margin-left: 0;
+        }
+        
+        nav.main-nav ul {
+            flex-direction: column;
+        }
+        
+        nav.main-nav ul li {
+            margin: 0.5rem 0;
+        }
+        
+        .auth-buttons {
+            margin-top: 1rem;
+        }
+        
+        .container {
+            width: 95%;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button">Accueil</a></li>
+                    <li><a href="Simulateur.html" class="nav-button">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn btn-primary">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Guide du prêt professionnel</h1>
+        <div class="guide-content">
+            <div class="guide-section">
+                <h2>Introduction au prêt professionnel</h2>
+                <p>Le prêt professionnel est un outil financier essentiel pour les entrepreneurs qui cherchent à développer leur activité, financer des équipements ou gérer leur trésorerie. Ce guide vous aidera à comprendre les différents aspects du prêt professionnel et à prendre les meilleures décisions pour votre entreprise.</p>
+            </div>
+
+            <div class="guide-section">
+                <h2>Types de prêts professionnels</h2>
+                <ul>
+                    <li>Prêt d'équipement</li>
+                    <li>Prêt immobilier professionnel</li>
+                    <li>Prêt de trésorerie</li>
+                    <li>Crédit-bail</li>
+                    <li>Prêt à la création d'entreprise</li>
+                </ul>
+                <p>Chaque type de prêt a ses propres caractéristiques et convient à des situations spécifiques. Il est important de bien comprendre vos besoins avant de choisir.</p>
+            </div>
+
+            <div class="guide-section">
+                <h2>Conditions d'obtention</h2>
+                <p>Pour obtenir un prêt professionnel, vous devrez généralement :</p>
+                <ul>
+                    <li>Avoir un business plan solide</li>
+                    <li>Présenter des garanties</li>
+                    <li>Avoir une situation financière saine</li>
+                    <li>Justifier de la viabilité de votre projet</li>
+                </ul>
+            </div>
+
+            <div class="guide-section">
+                <h2>Préparer votre dossier de prêt</h2>
+                <p>Un dossier de prêt bien préparé augmente vos chances d'obtenir un financement. Voici les éléments clés à inclure :</p>
+                <ul>
+                    <li>Business plan détaillé</li>
+                    <li>États financiers (bilan, compte de résultat, prévisions)</li>
+                    <li>Justificatifs de revenus et de patrimoine</li>
+                    <li>Description précise du projet à financer</li>
+                    <li>CV des dirigeants</li>
+                </ul>
+            </div>
+
+            <div class="guide-section">
+                <h2>Négocier les meilleures conditions</h2>
+                <p>Lors de la négociation de votre prêt, soyez attentif aux éléments suivants :</p>
+                <ul>
+                    <li>Taux d'intérêt</li>
+                    <li>Durée du prêt</li>
+                    <li>Montant des mensualités</li>
+                    <li>Frais de dossier</li>
+                    <li>Conditions de remboursement anticipé</li>
+                </ul>
+                <p>N'hésitez pas à comparer les offres de plusieurs établissements pour obtenir les meilleures conditions.</p>
+            </div>
+
+            <div class="guide-section">
+                <h2>Alternatives au prêt bancaire classique</h2>
+                <p>Si vous rencontrez des difficultés à obtenir un prêt bancaire traditionnel, explorez ces alternatives :</p>
+                <ul>
+                    <li>Financement participatif (crowdfunding)</li>
+                    <li>Prêts entre particuliers</li>
+                    <li>Aides et subventions publiques</li>
+                    <li>Business angels ou capital-risque</li>
+                </ul>
+            </div>
+
+            <div class="guide-section">
+                <h2>Gestion du prêt et remboursement</h2>
+                <p>Une fois le prêt obtenu, une gestion rigoureuse est essentielle :</p>
+                <ul>
+                    <li>Respectez scrupuleusement l'échéancier de remboursement</li>
+                    <li>Surveillez votre trésorerie pour anticiper les difficultés</li>
+                    <li>Communiquez régulièrement avec votre banque</li>
+                    <li>Envisagez un remboursement anticipé si votre situation le permet</li>
+                </ul>
+            </div>
+
+            <div class="cta-section">
+                <h2>Prêt à franchir le pas ?</h2>
+                <p>Nos experts sont là pour vous accompagner dans votre projet de prêt professionnel.</p>
+                <a href="Simulateur de prêt professionnel.html" class="cta-button">Simuler mon prêt professionnel</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="our_services">carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Nos services</h3>
+                <ul>
+                    <li><a href="nos prêts.html">Prêts</a></li>
+                    <li><a href="inversticement.html">Investissements</a></li>
+                    <li><a href="Solutions d'Assurance.html">Assurances</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: contact@lazona.fr</li>
+                    <li>Téléphone: +33 1 23 45 67 89</li>
+                    <li>Adresse: 123 Rue de la Finance, 75001 Paris</li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const languageSelect = document.getElementById('language-select');
+    
+    languageSelect.addEventListener('change', (e) => {
+        const selectedLanguage = e.target.value;
+        // Implement language change logic here
+        console.log(`Language changed to ${selectedLanguage}`);
+        // You would typically reload the page or update the content dynamically here
+    });
+
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Add hover effect to CTA button
+    const ctaButton = document.querySelector('.cta-button');
+    ctaButton.addEventListener('mouseenter', () => {
+        ctaButton.style.backgroundColor = '#1565C0';
+    });
+    ctaButton.addEventListener('mouseleave', () => {
+        ctaButton.style.backgroundColor = '#2196F3';
+    });
+
+    // Add a scroll-to-top button
+    const scrollToTopButton = document.createElement('button');
+    scrollToTopButton.innerHTML = '↑';
+    scrollToTopButton.style.position = 'fixed';
+    scrollToTopButton.style.bottom = '20px';
+    scrollToTopButton.style.right = '20px';
+    scrollToTopButton.style.fontSize = '20px';
+    scrollToTopButton.style.backgroundColor = '#2196F3';
+    scrollToTopButton.style.color = 'white';
+    scrollToTopButton.style.border = 'none';
+    scrollToTopButton.style.borderRadius = '50%';
+    scrollToTopButton.style.width = '40px';
+    scrollToTopButton.style.height = '40px';
+    scrollToTopButton.style.cursor = 'pointer';
+    scrollToTopButton.style.display = 'none';
+
+    document.body.appendChild(scrollToTopButton);
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollToTopButton.style.display = 'block';
+        } else {
+            scrollToTopButton.style.display = 'none';
+        }
+    });
+
+    scrollToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+</script>
+
+</body></html>

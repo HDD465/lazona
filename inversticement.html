@@ -1,0 +1,568 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investissement - LAZONA</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #3498db;
+        --secondary-color: #2ecc71;
+        --background-color: #f9f9f9;
+        --text-color: #333;
+        --accent-color: #e74c3c;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.8;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.8rem;
+        transition: all 0.3s ease;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    .logo:hover {
+        text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    
+    .btn-primary:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .container {
+        width: 80%;
+        max-width: 1200px;
+        margin: 6rem auto 2rem;
+        padding: 2rem;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+    
+    h1, h2 {
+        color: var(--primary-color);
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    .investment-options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
+
+    .investment-option {
+        flex-basis: calc(50% - 1rem);
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .investment-option:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .investment-option h3 {
+        color: var(--secondary-color);
+        margin-top: 0;
+    }
+
+    .investment-option ul {
+        padding-left: 1.5rem;
+    }
+
+    .cta-section {
+        text-align: center;
+        margin-top: 3rem;
+        padding: 2rem;
+        background-color: #f1f8fe;
+        border-radius: 8px;
+    }
+
+    .cta-btn {
+        font-size: 1.1rem;
+        padding: 12px 24px;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .logo {
+            margin-left: 0;
+            margin-bottom: 1rem;
+        }
+        
+        nav.main-nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        nav.main-nav ul {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        nav.main-nav ul li {
+            margin: 0.5rem 0;
+        }
+        
+        .auth-buttons {
+            margin-top: 1rem;
+        }
+        
+        .investment-option {
+            flex-basis: 100%;
+        }
+
+        .container {
+            width: 90%;
+            padding: 1rem;
+        }
+    }
+
+    .chart-container {
+        width: 100%;
+        height: 400px;
+        margin-top: 2rem;
+    }
+
+    #investment-calculator {
+        background-color: #f1f8fe;
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+    }
+
+    #investment-calculator h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+
+    #investment-calculator label {
+        display: block;
+        margin-top: 1rem;
+    }
+
+    #investment-calculator input {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    #investment-calculator button {
+        margin-top: 1rem;
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #investment-calculator button:hover {
+        background-color: #27ae60;
+    }
+
+    #result {
+        margin-top: 1rem;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button">Accueil</a></li>
+                    <li><a href="simulateur.html" class="nav-button">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                    <option value="it">Italiano</option>
+                    <option value="pt">Português</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="ru">Русский</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.htmls" class="btn btn-primary">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Investissement avec LAZONA</h1>
+        
+        <p>Chez LAZONA, nous croyons en l'importance de l'investissement pour construire un avenir financier solide. Que vous soyez un investisseur novice ou expérimenté, nous avons des solutions adaptées à vos besoins et à votre profil de risque.</p>
+
+        <h2>Pourquoi investir avec LAZONA ?</h2>
+        <ul>
+            <li>Une gamme diversifiée de produits d'investissement</li>
+            <li>Des conseillers experts à votre disposition</li>
+            <li>Des outils de simulation et de suivi performants</li>
+            <li>Des frais compétitifs</li>
+            <li>Une approche personnalisée selon votre profil d'investisseur</li>
+        </ul>
+
+        <div class="investment-options">
+            <div class="investment-option">
+                <h3>Épargne Sécurisée</h3>
+                <ul>
+                    <li>Livret A</li>
+                    <li>Livret de Développement Durable et Solidaire (LDDS)</li>
+                    <li>Plan d'Épargne Logement (PEL)</li>
+                </ul>
+            </div>
+            <div class="investment-option">
+                <h3>Placements à Moyen Terme</h3>
+                <ul>
+                    <li>Assurance-vie</li>
+                    <li>Plan d'Épargne en Actions (PEA)</li>
+                    <li>Compte-titres ordinaire</li>
+                </ul>
+            </div>
+            <div class="investment-option">
+                <h3>Investissements Immobiliers</h3>
+                <ul>
+                    <li>Investissement locatif</li>
+                    <li>SCPI (Sociétés Civiles de Placement Immobilier)</li>
+                    <li>OPCI (Organismes de Placement Collectif Immobilier)</li>
+                </ul>
+            </div>
+            <div class="investment-option">
+                <h3>Investissements Responsables</h3>
+                <ul>
+                    <li>Fonds ISR (Investissement Socialement Responsable)</li>
+                    <li>Obligations vertes</li>
+                    <li>Investissements dans l'économie sociale et solidaire</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Performance de nos produits d'investissement</h2>
+        <p>Voici un aperçu de la performance moyenne de nos principaux produits d'investissement sur les 5 dernières années :</p>
+        <div class="chart-container">
+            <canvas id="performanceChart"></canvas>
+        </div>
+
+        <div id="investment-calculator">
+            <h3>Simulateur d'investissement</h3>
+            <form id="investment-form">
+                <label for="initial-investment">Investissement initial (€) :</label>
+                <input type="number" id="initial-investment" required>
+
+                <label for="monthly-contribution">Contribution mensuelle (€) :</label>
+                <input type="number" id="monthly-contribution" required>
+
+                <label for="investment-duration">Durée d'investissement (années) :</label>
+                <input type="number" id="investment-duration" required>
+
+                <label for="expected-return">Rendement annuel espéré (%) :</label>
+                <input type="number" id="expected-return" step="0.1" required>
+
+                <button type="submit">Calculer</button>
+            </form>
+            <div id="result"></div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Prêt à investir avec LAZONA ?</h2>
+            <p>Nos experts sont là pour vous guider dans votre parcours d'investissement.</p>
+            <a href="contacte.html" class="btn btn-primary cta-btn">Contactez un conseiller</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="careers">Carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Nos services</h3>
+                <ul>
+                    <li><a href="simulateur.html">Simulateur de prêt</a></li>
+                    <li><a href="nos prêts.html">Types de prêts</a></li>
+                    <li><a href="inversticement.html">Opportunités d'investissement</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: contact@lazona.fr</li>
+                    <li>Téléphone: +33 1 23 45 67 89</li>
+                    <li>Adresse: 123 Rue de la Finance, 75008 Paris</li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const ctx = document.getElementById('performanceChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Épargne Sécurisée', 'Assurance-vie', 'PEA', 'SCPI', 'Fonds ISR'],
+            datasets: [{
+                label: 'Performance moyenne sur 5 ans (%)',
+                data: [1.5, 3.2, 6.8, 4.5, 5.7],
+                backgroundColor: [
+                    'rgba(52, 152, 219, 0.6)',
+                    'rgba(46, 204, 113, 0.6)',
+                    'rgba(231, 76, 60, 0.6)',
+                    'rgba(241, 196, 15, 0.6)',
+                    'rgba(155, 89, 182, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(52, 152, 219, 1)',
+                    'rgba(46, 204, 113, 1)',
+                    'rgba(231, 76, 60, 1)',
+                    'rgba(241, 196, 15, 1)',
+                    'rgba(155, 89, 182, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Performance (%)'
+                    }
+                }
+            }
+        }
+    });
+
+    document.getElementById('investment-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const initialInvestment = parseFloat(document.getElementById('initial-investment').value);
+        const monthlyContribution = parseFloat(document.getElementById('monthly-contribution').value);
+        const duration = parseInt(document.getElementById('investment-duration').value);
+        const expectedReturn = parseFloat(document.getElementById('expected-return').value) / 100;
+
+        let totalInvestment = initialInvestment;
+        for (let i = 0; i < duration * 12; i++) {
+            totalInvestment += monthlyContribution;
+            totalInvestment *= (1 + expectedReturn / 12);
+        }
+
+        const resultElement = document.getElementById('result');
+        resultElement.innerHTML = `
+            Valeur estimée de l'investissement après ${duration} ans : ${totalInvestment.toFixed(2)} €<br>
+            Montant total investi : ${(initialInvestment + monthlyContribution * duration * 12).toFixed(2)} €<br>
+            Gain potentiel : ${(totalInvestment - (initialInvestment + monthlyContribution * duration * 12)).toFixed(2)} €
+        `;
+    });
+
+    const languageSelect = document.getElementById('language-select');
+    languageSelect.addEventListener('change', (e) => {
+        const lang = e.target.value;
+        console.log(`Language changed to: ${lang}`);
+        // Ici, vous pouvez ajouter la logique pour changer la langue du site
+    });
+});
+</script>
+
+</body>
+</html>

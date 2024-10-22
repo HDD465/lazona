@@ -1,0 +1,298 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZONA - Planifier sa retraite : commencez dès maintenant</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+        width: 80%;
+        max-width: 800px;
+        margin: 6rem auto 2rem;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
+
+    .article-meta {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+    }
+
+    .article-content {
+        margin-bottom: 2rem;
+    }
+
+    .article-content h2 {
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .article-content p {
+        margin-bottom: 1rem;
+    }
+
+    .article-content ul, .article-content ol {
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+    }
+
+    .article-image {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        margin: 1rem auto;
+        display: block;
+        border-radius: 8px;
+    }
+
+    .cta-section {
+        background-color: #f0f8ff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+    }
+
+    .cta-section h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+    
+    .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .container {
+            width: 95%;
+            padding: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button">Accueil</a></li>
+                    <li><a href="simulateur.html" class="nav-button">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    </header>
+
+    <div class="container">
+        <article>
+            <h1>Planifier sa retraite : commencez dès maintenant</h1>
+            <div class="article-meta">
+                <span>Publié le 15 juin 2023</span> | <span>Par Jean Dupont, Expert financier</span>
+            </div>
+            <img src="https://example.com/retirement-planning-image.jpg" alt="Couple âgé souriant, planifiant leur retraite" class="article-image" width="600" height="400">
+            <div class="article-content">
+                <p>La retraite peut sembler lointaine, surtout lorsque vous êtes au début de votre carrière. Cependant, commencer à planifier tôt est l'une des meilleures décisions financières que vous puissiez prendre. Dans cet article, nous allons explorer pourquoi il est crucial de commencer dès maintenant et les stratégies que vous pouvez mettre en place pour assurer votre avenir financier.</p>
+
+                <h2>Pourquoi commencer tôt ?</h2>
+                <p>Commencer à épargner pour votre retraite dès que possible présente plusieurs avantages :</p>
+                <ul>
+                    <li>Le pouvoir des intérêts composés : plus vous commencez tôt, plus votre argent a le temps de croître.</li>
+                    <li>Moins de pression financière : en épargnant régulièrement sur une longue période, vous n'aurez pas besoin de mettre de côté des sommes importantes plus tard.</li>
+                    <li>Plus de flexibilité : commencer tôt vous donne plus d'options pour ajuster votre stratégie au fil du temps.</li>
+                </ul>
+
+                <h2>Stratégies pour planifier sa retraite</h2>
+                <ol>
+                    <li><strong>Définissez vos objectifs de retraite</strong> : Réfléchissez au style de vie que vous souhaitez avoir à la retraite et estimez vos besoins financiers.</li>
+                    <li><strong>Commencez à épargner dès maintenant</strong> : Même de petites sommes peuvent faire une grande différence sur le long terme.</li>
+                    <li><strong>Profitez des plans d'épargne retraite</strong> : Renseignez-vous sur les options disponibles comme le PER (Plan d'Épargne Retraite) en France.</li>
+                    <li><strong>Diversifiez vos investissements</strong> : Ne mettez pas tous vos œufs dans le même panier. Considérez un mix d'actions, d'obligations et d'autres types d'investissements.</li>
+                    <li><strong>Augmentez progressivement vos contributions</strong> : À mesure que votre salaire augmente, essayez d'augmenter le montant que vous épargnez pour votre retraite.</li>
+                </ol>
+
+                <h2>L'importance de l'éducation financière</h2>
+                <p>Comprendre les bases de la finance personnelle et de l'investissement est crucial pour planifier efficacement votre retraite. N'hésitez pas à vous former, à lire des livres sur le sujet, ou à consulter un conseiller financier pour vous guider dans vos décisions.</p>
+
+                <h2>Conclusion</h2>
+                <p>Planifier sa retraite n'est pas une tâche à remettre à plus tard. En commençant dès maintenant, vous vous donnez les meilleures chances d'atteindre vos objectifs financiers et de profiter d'une retraite sereine et confortable. N'oubliez pas que chaque petit pas compte, alors commencez aujourd'hui, même si c'est avec de petites sommes.</p>
+            </div>
+            <div class="cta-section">
+                <h3>Prêt à commencer votre planification retraite ?</h3>
+                <p>Chez LAZONA, nous sommes là pour vous aider à chaque étape de votre parcours financier. Que vous soyez débutant ou que vous cherchiez à optimiser votre stratégie existante, nos experts sont là pour vous guider.</p>
+                <a href="Simulateur de retraite.html" class="btn btn-primary">Essayez notre simulateur de retraite</a>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="careers">Carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Add any necessary JavaScript here
+});
+</script>
+
+</body></html>

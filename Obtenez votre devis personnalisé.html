@@ -1,0 +1,507 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZONA - Devis Personnalisé | Obtenez votre estimation gratuite</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .btn-primary:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .hero {
+        background: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80') no-repeat center center/cover;
+        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+        margin-top: 60px;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .quote-form {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        max-width: 600px;
+        margin: 2rem auto;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+
+    .form-group select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 0 0 .293 4.707l5 5a1 1 0 0 0 1.414 0l5-5a1 1 0 1 0-1.414-1.414z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.7em top 50%;
+        background-size: 0.65em auto;
+    }
+
+    .submit-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background-color: #1976D2;
+    }
+
+    .benefits {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 3rem;
+    }
+
+    .benefit {
+        flex-basis: calc(33.333% - 2rem);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .benefit i {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 3rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .language-selector {
+            order: 1;
+        }
+        
+        .auth-buttons {
+            order: 2;
+        }
+        
+        .benefit {
+            flex-basis: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button" data-translate="home">Accueil</a></li>
+                    <li><a href="Simulateur.html" class="nav-button" data-translate="simulator">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button" data-translate="loans">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button" data-translate="investment">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button" data-translate="about">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button" data-translate="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                    <option value="it">Italiano</option>
+                    <option value="pt">Português</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="ru">Русский</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn btn-primary">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 data-translate="quote_title">Obtenez votre devis personnalisé</h1>
+            <p data-translate="quote_subtitle">Une estimation gratuite et sans engagement en quelques clics</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <form class="quote-form" id="quote-form">
+            <div class="form-group">
+                <label for="product-type" data-translate="product_type">Type de produit</label>
+                <select id="product-type" name="product-type" required>
+                    <option value="" data-translate="select_product">Sélectionnez un produit</option>
+                    <option value="pret-immobilier" data-translate="mortgage">Prêt immobilier</option>
+                    <option value="pret-personnel" data-translate="personal_loan">Prêt personnel</option>
+                    <option value="assurance-habitation" data-translate="home_insurance">Assurance habitation</option>
+                    <option value="assurance-auto" data-translate="car_insurance">Assurance auto</option>
+                    <option value="assurance-vie" data-translate="life_insurance">Assurance vie</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="amount" data-translate="amount">Montant</label>
+                <input type="number" id="amount" name="amount" min="0" step="1000" required>
+            </div>
+            <div class="form-group">
+                <label for="duration" data-translate="duration">Durée (en années)</label>
+                <input type="number" id="duration" name="duration" min="1" max="30" required>
+            </div>
+            <div class="form-group">
+                <label for="name" data-translate="name">Nom</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email" data-translate="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone" data-translate="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <button type="submit" class="submit-btn" data-translate="get_quote">Obtenir mon devis</button>
+        </form>
+
+        <section class="benefits">
+            <div class="benefit">
+                <i class="fas fa-clock"></i>
+                <h3 data-translate="fast_quote">Devis rapide</h3>
+                <p data-translate="fast_quote_desc">Obtenez votre estimation en quelques minutes seulement</p>
+            </div>
+            <div class="benefit">
+                <i class="fas fa-user-shield"></i>
+                <h3 data-translate="personalized">Personnalisé</h3>
+                <p data-translate="personalized_desc">Des solutions adaptées à votre situation unique</p>
+            </div>
+            <div class="benefit">
+                <i class="fas fa-handshake"></i>
+                <h3 data-translate="no_obligation">Sans engagement</h3>
+                <p data-translate="no_obligation_desc">Comparez nos offres sans aucune obligation</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="useful_links">Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="our_services">carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="our_products">Nos produits</h3>
+                <ul>
+                    <li><a href="nos prêts.html" data-translate="loans">Prêts</a></li>
+                    <li><a href="inversticement.html" data-translate="investments">Investissements</a></li>
+                    <li><a href="Solutions d'Assurance.html" data-translate="insurance">Assurances</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="contact_us">Nous contacter</h3>
+                <ul>
+                    <li>Tél : 01 23 45 67 89</li>
+                    <li>Email : contact@lazona.fr</li>
+                    <li>Adresse : 123 rue de la Finance, 75000 Paris</li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const form = document.getElementById('quote-form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Here you would typically send the form data to a server
+        // For this example, we'll just show an alert
+        alert('Merci pour votre demande de devis. Nous vous contacterons bientôt !');
+    });
+
+    const translations = {
+        en: {
+            home: "Home",
+            simulator: "Simulator",
+            loans: "Our Loans",
+            investment: "Investment",
+            insurance: "Insurance",
+            about: "About",
+            contact: "Contact",
+            quote_title: "Get your personalized quote",
+            quote_subtitle: "A free estimate with no obligation in just a few clicks",
+            product_type: "Product type",
+            select_product: "Select a product",
+            mortgage: "Mortgage",
+            personal_loan: "Personal loan",
+            home_insurance: "Home insurance",
+            car_insurance: "Car insurance",
+            life_insurance: "Life insurance",
+            amount: "Amount",
+            duration: "Duration (in years)",
+            name: "Name",
+            email: "Email",
+            phone: "Phone",
+            get_quote: "Get my quote",
+            fast_quote: "Fast quote",
+            fast_quote_desc: "Get your estimate in just a few minutes",
+            personalized: "Personalized",
+            personalized_desc: "Solutions tailored to your unique situation",
+            no_obligation: "No obligation",
+            no_obligation_desc: "Compare our offers with no commitment",
+            useful_links: "Useful links",
+            legal_notice: "Legal notice",
+            privacy_policy: "Privacy policy",
+            faq: "FAQ",
+            our_products: "Our products",
+            loans: "Loans",
+            investments: "Investments",
+            insurance: "Insurance",
+            contact_us: "Contact us"
+        }
+    };
+
+    function translatePage(lang) {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+    }
+
+    document.getElementById('language-select').addEventListener('change', (e) => {
+        translatePage(e.target.value);
+    });
+});
+</script>
+
+</body></html>

@@ -1,0 +1,309 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZONA - L'art de la diversification de portefeuille</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+        width: 80%;
+        max-width: 800px;
+        margin: 6rem auto 2rem;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .article-meta {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 2rem;
+    }
+
+    .article-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .article-content h2 {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .article-content p {
+        margin-bottom: 1.5rem;
+    }
+
+    .article-content ul, .article-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+    }
+
+    .article-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 2rem 0;
+    }
+
+    .cta-section {
+        background-color: #f0f8ff;
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 3rem;
+    }
+
+    .cta-section h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+    
+    .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .container {
+            width: 95%;
+            padding: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+            <ul>
+                    <li><a href="accueil.html" class="nav-button">Accueil</a></li>
+                    <li><a href="simulateur.html" class="nav-button">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    </header>
+
+    <div class="container">
+        <article>
+            <h1>L'art de la diversification de portefeuille</h1>
+            <div class="article-meta">
+                <span>Publié le 15 juin 2023</span> | <span>Par Sophie Martin, Analyste financière</span>
+            </div>
+            <img src="https://example.com/diversification-portfolio.jpg" alt="Image illustrant la diversification de portefeuille avec des graphiques et des icônes représentant différentes classes d'actifs" class="article-image" width="800" height="400">
+            <div class="article-content">
+                <p>La diversification de portefeuille est souvent considérée comme l'un des principes fondamentaux de l'investissement. Mais qu'est-ce que cela signifie exactement et pourquoi est-ce si important ? Dans cet article, nous allons explorer l'art de la diversification et comment vous pouvez l'appliquer pour optimiser vos investissements.</p>
+
+                <h2>Qu'est-ce que la diversification ?</h2>
+                <p>La diversification consiste à répartir vos investissements sur différents types d'actifs, secteurs et régions géographiques. L'idée est de ne pas mettre tous ses œufs dans le même panier, réduisant ainsi le risque global de votre portefeuille.</p>
+
+                <h2>Pourquoi diversifier ?</h2>
+                <p>Les avantages de la diversification sont nombreux :</p>
+                <ul>
+                    <li>Réduction du risque : En diversifiant, vous limitez l'impact négatif qu'un seul investissement peut avoir sur l'ensemble de votre portefeuille.</li>
+                    <li>Stabilité des rendements : Différents actifs réagissent différemment aux conditions du marché, ce qui peut aider à stabiliser vos rendements globaux.</li>
+                    <li>Opportunités de croissance : La diversification vous permet d'accéder à un plus large éventail d'opportunités d'investissement.</li>
+                </ul>
+
+                <h2>Comment diversifier efficacement ?</h2>
+                <p>Voici quelques stratégies pour diversifier votre portefeuille :</p>
+                <ol>
+                    <li>Investissez dans différentes classes d'actifs : actions, obligations, immobilier, matières premières, etc.</li>
+                    <li>Répartissez géographiquement : ne vous limitez pas à un seul pays ou région.</li>
+                    <li>Diversifiez par secteur : investissez dans différents secteurs économiques pour réduire le risque lié à un secteur spécifique.</li>
+                    <li>Pensez aux ETF et fonds indiciels : ces instruments offrent une diversification instantanée à moindre coût.</li>
+                    <li>Rééquilibrez régulièrement : ajustez périodiquement votre portefeuille pour maintenir votre allocation cible.</li>
+                </ol>
+
+                <h2>Les pièges à éviter</h2>
+                <p>Bien que la diversification soit cruciale, il est important d'éviter certains pièges :</p>
+                <ul>
+                    <li>Sur-diversification : trop diversifier peut diluer vos rendements et rendre la gestion de votre portefeuille complexe.</li>
+                    <li>Diversification illusoire : assurez-vous que vos investissements sont réellement diversifiés et ne sont pas tous corrélés.</li>
+                    <li>Négliger vos objectifs : la diversification doit toujours être alignée sur vos objectifs financiers et votre tolérance au risque.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>La diversification de portefeuille est un art qui demande de la réflexion et de la planification. En comprenant ses principes et en les appliquant judicieusement, vous pouvez construire un portefeuille robuste capable de résister aux fluctuations du marché tout en poursuivant vos objectifs financiers à long terme.</p>
+            </div>
+
+            <div class="cta-section">
+                <h3>Prêt à diversifier votre portefeuille ?</h3>
+                <p>Chez LAZONA, nous pouvons vous aider à élaborer une stratégie de diversification adaptée à vos besoins et objectifs. Contactez l'un de nos conseillers dès aujourd'hui pour commencer.</p>
+                <a href="contacte.html" class="btn btn-primary">Prendre rendez-vous</a>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="careers">Carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Add any necessary JavaScript here
+});
+</script>
+
+</body></html>

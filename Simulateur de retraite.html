@@ -1,0 +1,418 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZONA - Simulateur de retraite</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        list-style-type: none;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 6rem auto 2rem;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .simulator {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .input-section {
+        flex: 1;
+        min-width: 300px;
+        margin-right: 2rem;
+    }
+
+    .result-section {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    input[type="number"], input[type="range"] {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    input[type="range"] {
+        -webkit-apparance: none;
+        width: 100%;
+        height: 10px;
+        border-radius: 5px;  
+        background: #ddd;
+        outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-apparance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%; 
+        background: var(--primary-color);
+        cursor: pointer;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        cursor: pointer;
+    }
+
+    button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #1976D2;
+    }
+
+    .result-card {
+        background-color: #f0f8ff;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .result-card h3 {
+        color: var(--primary-color);
+        margin-top: 0;
+    }
+
+    #retirementChart {
+        width: 100%;
+        max-width: 600px;
+        height: 300px;
+        margin: 0 auto;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .container {
+            width: 95%;
+            padding: 1rem;
+        }
+
+        .simulator {
+            flex-direction: column;
+        }
+
+        .input-section, .result-section {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/" class="nav-button">Accueil</a></li>
+                    <li><a href="/simulateur" class="nav-button">Simulateur</a></li>
+                    <li><a href="/nos-prets" class="nav-button">Nos Prêts</a></li>
+                    <li><a href="/investissement" class="nav-button">Investissement</a></li>
+                    <li><a href="/a-propos" class="nav-button">À Propos</a></li>
+                    <li><a href="/contact" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Simulateur de retraite</h1>
+        <div class="simulator">
+            <div class="input-section">
+                <div class="form-group">
+                    <label for="currentAge">Âge actuel</label>
+                    <input type="range" id="currentAge" min="18" max="65" value="30">
+                    <span id="currentAgeValue">30</span> ans
+                </div>
+                <div class="form-group">
+                    <label for="retirementAge">Âge de départ à la retraite</label>
+                    <input type="range" id="retirementAge" min="55" max="75" value="65">
+                    <span id="retirementAgeValue">65</span> ans
+                </div>
+                <div class="form-group">
+                    <label for="currentSalary">Salaire annuel actuel</label>
+                    <input type="number" id="currentSalary" min="0" value="30000">
+                </div>
+                <div class="form-group">
+                    <label for="monthlySavings">Épargne mensuelle</label>
+                    <input type="number" id="monthlySavings" min="0" value="500">
+                </div>
+                <div class="form-group">
+                    <label for="currentSavings">Épargne actuelle</label>
+                    <input type="number" id="currentSavings" min="0" value="10000">
+                </div>
+                <div class="form-group">
+                    <label for="returnRate">Taux de rendement annuel estimé (%)</label>
+                    <input type="number" id="returnRate" min="0" max="15" step="0.1" value="5">
+                </div>
+                <button onclick="calculateRetirement()">Calculer</button>
+            </div>
+            <div class="result-section">
+                <div class="result-card">
+                    <h3>Résultats de la simulation</h3>
+                    <p>Capital à la retraite: <span id="retirementCapital">0</span> €</p>
+                    <p>Revenu mensuel estimé: <span id="monthlyIncome">0</span> €</p>
+                </div>
+                <canvas id="retirementChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="careers">Carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+let retirementChart;
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const currentAgeSlider = document.getElementById('currentAge');
+    const currentAgeValue = document.getElementById('currentAgeValue');
+    const retirementAgeSlider = document.getElementById('retirementAge');
+    const retirementAgeValue = document.getElementById('retirementAgeValue');
+
+    currentAgeSlider.addEventListener('input', function() {
+        currentAgeValue.textContent = this.value;
+    });
+
+    retirementAgeSlider.addEventListener('input', function() {
+        retirementAgeValue.textContent = this.value;
+    });
+
+    // Initialize the chart
+    const ctx = document.getElementById('retirementChart').getContext('2d');
+    retirementChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Capital de retraite',
+                data: [],
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Capital (€)'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Âge'
+                    }
+                }
+            }
+        }
+    });
+});
+
+function calculateRetirement() {
+    const currentAge = parseInt(document.getElementById('currentAge').value);
+    const retirementAge = parseInt(document.getElementById('retirementAge').value);
+    const currentSalary = parseFloat(document.getElementById('currentSalary').value);
+    const monthlySavings = parseFloat(document.getElementById('monthlySavings').value);
+    const currentSavings = parseFloat(document.getElementById('currentSavings').value);
+    const returnRate = parseFloat(document.getElementById('returnRate').value) / 100;
+
+    let capital = currentSavings;
+    const years = retirementAge - currentAge;
+    const chartLabels = [];
+    const chartData = [];
+
+    for (let i = 0; i <= years; i++) {
+        chartLabels.push(currentAge + i);
+        chartData.push(capital);
+        capital = capital * (1 + returnRate) + monthlySavings * 12;
+    }
+
+    const finalCapital = capital;
+    const monthlyIncome = finalCapital * 0.04 / 12; // Assuming a 4% withdrawal rate
+
+    document.getElementById('retirementCapital').textContent = finalCapital.toFixed(2);
+    document.getElementById('monthlyIncome').textContent = monthlyIncome.toFixed(2);
+
+    // Update the chart
+    retirementChart.data.labels = chartLabels;
+    retirementChart.data.datasets[0].data = chartData;
+    retirementChart.update();
+}
+</script>
+
+</body></html>

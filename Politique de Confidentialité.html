@@ -1,0 +1,431 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de Confidentialité - LAZONA</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        list-style-type: none;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .btn-primary:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .container {
+        width: 80%;
+        margin: 100px auto 2rem;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+    }
+    
+    h2 {
+        color: var(--secondary-color);
+        margin-top: 2rem;
+    }
+    
+    p {
+        margin-bottom: 1rem;
+    }
+    
+    .privacy-section {
+        margin-bottom: 2rem;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-icons a {
+        font-size: 1.5rem;
+        color: white;
+        transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .language-selector {
+            order: 1;
+        }
+        
+        .auth-buttons {
+            order: 2;
+        }
+        
+        .container {
+            width: 95%;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button" data-translate="home">Accueil</a></li>
+                    <li><a href="simulateur.html" class="nav-button" data-translate="simulator">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button" data-translate="loans">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button" data-translate="investment">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button" data-translate="about">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button" data-translate="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                    <option value="it">Italiano</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn btn-primary" data-translate="login">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary" data-translate="signup">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 data-translate="privacy_policy">Politique de Confidentialité</h1>
+
+        <section class="privacy-section">
+            <h2 data-translate="intro">Introduction</h2>
+            <p data-translate="intro_text">Chez LAZONA, nous accordons une grande importance à la protection de vos données personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons, partageons et protégeons vos informations personnelles lorsque vous utilisez notre site web et nos services.</p>
+        </section>
+
+        <section class="privacy-section">
+            <h2 data-translate="data_collection">Collecte de données</h2>
+            <p data-translate="data_collection_text">Nous collectons les informations que vous nous fournissez directement, telles que vos nom, adresse e-mail, numéro de téléphone et informations financières lorsque vous vous inscrivez à nos services, effectuez une demande de prêt ou communiquez avec nous. Nous pouvons également collecter des informations automatiquement lorsque vous utilisez notre site web, comme votre adresse IP, le type de navigateur, les pages visitées et les durées de session.</p>
+        </section>
+
+        <section class="privacy-section">
+            <h2 data-translate="data_use">Utilisation des données</h2>
+            <p data-translate="data_use_text">Nous utilisons vos informations personnelles pour :</p>
+            <ul>
+                <li data-translate="data_use_1">Fournir, maintenir et améliorer nos services</li>
+                <li data-translate="data_use_2">Traiter vos demandes de prêt et gérer votre compte</li>
+                <li data-translate="data_use_3">Communiquer avec vous concernant nos services</li>
+                <li data-translate="data_use_4">Prévenir la fraude et assurer la sécurité de notre plateforme</li>
+                <li data-translate="data_use_5">Respecter nos obligations légales et réglementaires</li>
+            </ul>
+        </section>
+
+        <section class="privacy-section">
+            <h2 data-translate="data_sharing">Partage des données</h2>
+            <p data-translate="data_sharing_text">Nous ne vendons pas vos informations personnelles à des tiers. Cependant, nous pouvons partager vos informations avec :</p>
+            <ul>
+                <li data-translate="data_sharing_1">Nos partenaires financiers pour le traitement des demandes de prêt</li>
+                <li data-translate="data_sharing_2">Des prestataires de services qui nous aident à exploiter notre entreprise</li>
+                <li data-translate="data_sharing_3">Les autorités légales lorsque la loi l'exige</li>
+            </ul>
+        </section>
+
+        <section class="privacy-section">
+            <h2 data-translate="data_security">Sécurité des données</h2>
+            <p data-translate="data_security_text">Nous mettons en place des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos informations personnelles contre tout accès non autorisé, altération, divulgation ou destruction.</p>
+        </section>
+
+        <section class="privacy-section">
+            <h2 data-translate="your_rights">Vos droits</h2>
+            <p data-translate="your_rights_text">Conformément au Règlement Général sur la Protection des Données (RGPD), vous avez le droit d'accéder à vos données personnelles, de les rectifier, de les effacer, de limiter leur traitement, de vous opposer à leur traitement et à la portabilité des données. Pour exercer ces droits, veuillez nous contacter à l'adresse e-mail suivante : privacy@lazona.fr</p>
+        </section>
+
+        <section class="privacy-section">
+            <h2 data-translate="cookies">Cookies</h2>
+            <p data-translate="cookies_text">Nous utilisons des cookies pour améliorer votre expérience sur notre site web. Vous pouvez configurer votre navigateur pour refuser tous les cookies ou pour indiquer quand un cookie est envoyé. Cependant, certaines fonctionnalités de notre site peuvent ne pas fonctionner correctement sans cookies.</p>
+        </section>
+
+        <section class="privacy-section">
+            <h2 data-translate="changes">Modifications de la politique de confidentialité</h2>
+            <p data-translate="changes_text">Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Toute modification sera publiée sur cette page avec une date de mise à jour révisée. Nous vous encourageons à consulter régulièrement cette politique pour rester informé de la manière dont nous protégeons vos informations.</p>
+        </section>
+
+        <section class="privacy-section">
+            <h2 data-translate="contact">Nous contacter</h2>
+            <p data-translate="contact_text">Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter à : privacy@lazona.fr</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="useful_links">Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                    <li><a href="carrières.html" data-translate="careers">Carrières</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="contact_us">Nous contacter</h3>
+                <p>Email: contact@lazona.fr</p>
+                <p>Tél: +33 1 23 45 67 89</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="follow_us">Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const translations = {
+        en: {
+            home: "Home",
+            simulator: "Simulator",
+            loans: "Our Loans",
+            investment: "Investment",
+            about: "About",
+            contact: "Contact",
+            login: "Login",
+            signup: "Sign Up",
+            privacy_policy: "Privacy Policy",
+            intro: "Introduction",
+            intro_text: "At LAZONA, we place great importance on protecting your personal data. This privacy policy explains how we collect, use, share and protect your personal information when you use our website and services.",
+            data_collection: "Data Collection",
+            data_collection_text: "We collect information that you provide directly to us, such as your name, email address, phone number, and financial information when you sign up for our services, apply for a loan, or communicate with us. We may also automatically collect information when you use our website, such as your IP address, browser type, pages visited, and session durations.",
+            data_use: "Use of Data",
+            data_use_text: "We use your personal information to:",
+            data_use_1: "Provide, maintain and improve our services",
+            data_use_2: "Process your loan applications and manage your account",
+            data_use_3: "Communicate with you about our services",
+            data_use_4: "Prevent fraud and ensure the security of our platform",
+            data_use_5: "Comply with our legal and regulatory obligations",
+            data_sharing: "Data Sharing",
+            data_sharing_text: "We do not sell your personal information to third parties. However, we may share your information with:",
+            data_sharing_1: "Our financial partners for processing loan applications",
+            data_sharing_2: "Service providers who help us operate our business",
+            data_sharing_3: "Legal authorities when required by law",
+            data_security: "Data Security",
+            data_security_text: "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure or destruction.",
+            your_rights: "Your Rights",
+            your_rights_text: "In accordance with the General Data Protection Regulation (GDPR), you have the right to access your personal data, rectify it, erase it, limit its processing, object to its processing, and to data portability. To exercise these rights, please contact us at the following email address: privacy@lazona.fr",
+            cookies: "Cookies",
+            cookies_text: "We use cookies to improve your experience on our website. You can configure your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features of our site may not function properly without cookies.",
+            changes: "Changes to the Privacy Policy",
+            changes_text: "We reserve the right to modify this privacy policy at any time. Any changes will be posted on this page with a revised update date. We encourage you to review this policy regularly to stay informed about how we are protecting your information.",
+            contact: "Contact Us",
+            contact_text: "If you have any questions regarding this privacy policy, please contact us at: privacy@lazona.fr",
+            useful_links: "Useful Links",
+            legal_notice: "Legal Notice",
+            faq: "FAQ",
+            blog: "Blog",
+            careers: "Careers",
+            contact_us: "Contact Us",
+            follow_us: "Follow Us"
+        },
+        // Add other languages here
+    };
+
+    function translatePage(lang) {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+    }
+
+    document.getElementById('language-select').addEventListener('change', (e) => {
+        translatePage(e.target.value);
+    });
+
+    // Initialize with French
+    translatePage('fr');
+});
+</script>
+
+</body></html>

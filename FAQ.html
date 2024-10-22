@@ -1,0 +1,504 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ - LAZONA</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .btn-primary:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .container {
+        width: 80%;
+        max-width: 1000px;
+        margin: 100px auto 2rem;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .faq-section {
+        margin-bottom: 2rem;
+    }
+    
+    .faq-item {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 1rem 0;
+    }
+    
+    .faq-question {
+        font-weight: bold;
+        color: var(--secondary-color);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .faq-answer {
+        margin-top: 1rem;
+        display: none;
+    }
+    
+    .faq-toggle {
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .faq-item.active .faq-toggle {
+        transform: rotate(45deg);
+    }
+    
+    .faq-item.active .faq-answer {
+        display: block;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-icons a {
+        font-size: 1.5rem;
+        color: white;
+        transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .language-selector {
+            order: 1;
+        }
+        
+        .auth-buttons {
+            order: 2;
+        }
+        
+        .container {
+            width: 95%;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button" data-translate="home">Accueil</a></li>
+                    <li><a href="simulateur.html" class="nav-button" data-translate="simulator">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button" data-translate="loans">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button" data-translate="investment">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button" data-translate="about">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button" data-translate="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                    <option value="it">Italiano</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn btn-primary" data-translate="login">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary" data-translate="signup">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 data-translate="faq_title">Foire Aux Questions (FAQ)</h1>
+
+        <div class="faq-section">
+            <div class="faq-item">
+                <div class="faq-question" data-translate="q1">
+                    Qu'est-ce que LAZONA ?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer" data-translate="a1">
+                    LAZONA est une plateforme de financement en ligne innovante qui propose des prêts personnels et professionnels à des taux compétitifs. Notre mission est de simplifier l'accès au crédit en utilisant des technologies de pointe et une approche centrée sur le client.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="q2">
+                    Comment fonctionne le processus de demande de prêt ?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer" data-translate="a2">
+                    Le processus est simple et entièrement en ligne. Commencez par remplir notre formulaire de demande, fournissez les documents nécessaires, et notre système évaluera votre demande. Vous recevrez une décision rapide, généralement dans les 24 à 48 heures.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="q3">
+                    Quels types de prêts proposez-vous ?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer" data-translate="a3">
+                    Nous proposons une variété de prêts, notamment des prêts personnels, des prêts auto, des prêts immobiliers, et des prêts aux entreprises. Chaque type de prêt est conçu pour répondre à des besoins spécifiques avec des conditions adaptées.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="q4">
+                    Quels sont les taux d'intérêt proposés ?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer" data-translate="a4">
+                    Nos taux d'intérêt varient en fonction du type de prêt, du montant emprunté, et de votre profil de crédit. Nous nous efforçons de proposer des taux compétitifs, généralement compris entre 2,5% et 12% selon les cas. Utilisez notre simulateur en ligne pour obtenir une estimation personnalisée.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="q5">
+                    Quels sont les critères d'éligibilité pour un prêt ?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer" data-translate="a5">
+                    Les critères principaux incluent : être majeur, résider en France, avoir un revenu régulier, et avoir un bon historique de crédit. Cependant, chaque demande est évaluée individuellement, et nous prenons en compte divers facteurs pour prendre notre décision.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="q6">
+                    Comment puis-je rembourser mon prêt ?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer" data-translate="a6">
+                    Les remboursements se font généralement par prélèvements automatiques mensuels sur votre compte bancaire. Vous pouvez également effectuer des remboursements anticipés sans frais supplémentaires via votre espace client en ligne.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="q7">
+                    Mes données personnelles sont-elles protégées ?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer" data-translate="a7">
+                    Absolument. La protection de vos données est notre priorité. Nous utilisons des technologies de cryptage avancées et respectons strictement le RGPD. Vos informations ne sont jamais vendues ou partagées avec des tiers non autorisés.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="q8">
+                    Puis-je investir via LAZONA ?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer" data-translate="a8">
+                    Oui, LAZONA offre également des opportunités d'investissement. Vous pouvez investir dans des prêts et potentiellement obtenir des rendements attractifs. Consultez notre section "Investissement" pour plus d'informations sur les options disponibles et les risques associés.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="q9">
+                    Comment puis-je contacter le service client ?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer" data-translate="a9">
+                    Notre service client est disponible par téléphone au 01 23 45 67 89, par email à support@lazona.fr, ou via le chat en direct sur notre site web. Nous sommes là pour vous aider du lundi au vendredi de 9h à 18h.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" data-translate="q10">
+                    Que se passe-t-il si je rencontre des difficultés de remboursement ?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer" data-translate="a10">
+                    Si vous rencontrez des difficultés, contactez-nous dès que possible. Nous travaillerons avec vous pour trouver une solution adaptée, comme un rééchelonnement de votre prêt ou un plan de paiement alternatif. Notre objectif est de vous aider à surmonter les périodes difficiles tout en maintenant une relation de confiance.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="useful_links">Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                    <li><a href="carrières.html" data-translate="careers">Carrières</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="contact_us">Nous contacter</h3>
+                <p>Email: contact@lazona.fr</p>
+                <p>Tél: +33 1 23 45 67 89</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="follow_us">Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const translations = {
+        en: {
+            home: "Home",
+            simulator: "Simulator",
+            loans: "Our Loans",
+            investment: "Investment",
+            about: "About",
+            contact: "Contact",
+            login: "Login",
+            signup: "Sign Up",
+            faq_title: "Frequently Asked Questions (FAQ)",
+            q1: "What is LAZONA?",
+            a1: "LAZONA is an innovative online financing platform that offers personal and professional loans at competitive rates. Our mission is to simplify access to credit using cutting-edge technologies and a customer-centric approach.",
+            q2: "How does the loan application process work?",
+            a2: "The process is simple and entirely online. Start by filling out our application form, provide the necessary documents, and our system will evaluate your application. You'll receive a quick decision, usually within 24 to 48 hours.",
+            q3: "What types of loans do you offer?",
+            a3: "We offer a variety of loans, including personal loans, auto loans, mortgages, and business loans. Each type of loan is designed to meet specific needs with tailored conditions.",
+            q4: "What interest rates do you offer?",
+            a4: "Our interest rates vary depending on the type of loan, the amount borrowed, and your credit profile. We strive to offer competitive rates, generally ranging from 2.5% to 12% depending on the case. Use our online simulator to get a personalized estimate.",
+            q5: "What are the eligibility criteria for a loan?",
+            a5: "The main criteria include: being of legal age, residing in France, having a regular income, and having a good credit history. However, each application is evaluated individually, and we take various factors into account when making our decision.",
+            q6: "How can I repay my loan?",
+            a6: "Repayments are usually made by automatic monthly debits from your bank account. You can also make early repayments without additional fees via your online customer account.",
+            q7: "Is my personal data protected?",
+            a7: "Absolutely. Protecting your data is our priority. We use advanced encryption technologies and strictly comply with GDPR. Your information is never sold or shared with unauthorized third parties.",
+            q8: "Can I invest through LAZONA?",
+            a8: "Yes, LAZONA also offers investment opportunities. You can invest in loans and potentially earn attractive returns. Check our 'Investment' section for more information on available options and associated risks.",
+            q9: "How can I contact customer service?",
+            a9: "Our customer service is available by phone at 01 23 45 67 89, by email at support@lazona.fr, or via live chat on our website. We are here to help you Monday to Friday from 9am to 6pm.",
+            q10: "What happens if I encounter repayment difficulties?",
+            a10: "If you encounter difficulties, contact us as soon as possible. We will work with you to find a suitable solution, such as rescheduling your loan or an alternative payment plan. Our goal is to help you overcome difficult periods while maintaining a relationship of trust.",
+            useful_links: "Useful Links",
+            legal_notice: "Legal Notice",
+            privacy_policy: "Privacy Policy",
+            faq: "FAQ",
+            blog: "Blog",
+            careers: "Careers",
+            contact_us: "Contact Us",
+            follow_us: "Follow Us"
+        },
+        // Add other languages here
+    };
+
+    function translatePage(lang) {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+    }
+
+    document.getElementById('language-select').addEventListener('change', (e) => {
+        translatePage(e.target.value);
+    });
+
+    // Initialize with French
+    translatePage('fr');
+
+    // FAQ toggle functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+});
+</script>
+
+</body></html>

@@ -1,0 +1,292 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZONA - L'investissement durable : concilier profit et impact positif</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+        width: 80%;
+        max-width: 800px;
+        margin: 6rem auto 2rem;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .article-meta {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 2rem;
+    }
+
+    .article-content {
+        margin-bottom: 2rem;
+    }
+
+    .article-content p {
+        margin-bottom: 1rem;
+    }
+
+    .article-content h2 {
+        color: var(--secondary-color);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .article-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+    }
+
+    .cta-section {
+        background-color: #f0f8ff;
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+    }
+
+    .cta-section h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+    
+    .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .container {
+            width: 95%;
+            padding: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button">Accueil</a></li>
+                    <li><a href="simulateur.html" class="nav-button">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    </header>
+
+    <div class="container">
+        <article>
+            <h1>L'investissement durable : concilier profit et impact positif</h1>
+            <div class="article-meta">
+                <span>Publié le 15 juin 2023</span> | <span>Par Marie Dupont, Experte en investissement durable</span>
+            </div>
+            <img src="https://example.com/sustainable-investment.jpg" alt="Image illustrant l'investissement durable avec des plantes poussant sur des pièces de monnaie" class="article-image" width="800" height="400">
+            <div class="article-content">
+                <p>L'investissement durable, également connu sous le nom d'investissement socialement responsable (ISR) ou investissement ESG (Environnemental, Social et de Gouvernance), gagne en popularité ces dernières années. Ce type d'investissement vise à générer des rendements financiers tout en ayant un impact positif sur la société et l'environnement. Dans cet article, nous explorerons les principes de l'investissement durable, ses avantages et comment vous pouvez commencer à intégrer cette approche dans votre stratégie d'investissement.</p>
+
+                <h2>Qu'est-ce que l'investissement durable ?</h2>
+                <p>L'investissement durable consiste à prendre en compte des critères environnementaux, sociaux et de gouvernance (ESG) dans les décisions d'investissement, en plus des critères financiers traditionnels. Cette approche vise à soutenir des entreprises et des projets qui contribuent positivement à la société et à l'environnement, tout en évitant ceux qui ont des impacts négatifs.</p>
+
+                <h2>Les avantages de l'investissement durable</h2>
+                <ul>
+                    <li>Potentiel de rendement à long terme : Les entreprises avec de bonnes pratiques ESG sont souvent mieux positionnées pour faire face aux défis futurs.</li>
+                    <li>Gestion des risques : L'analyse ESG peut aider à identifier et à éviter les entreprises exposées à des risques réglementaires ou réputationnels.</li>
+                    <li>Impact positif : Vous pouvez contribuer à résoudre des problèmes sociaux et environnementaux tout en investissant.</li>
+                    <li>Alignement avec vos valeurs : L'investissement durable vous permet d'aligner vos investissements avec vos convictions personnelles.</li>
+                </ul>
+
+                <h2>Comment intégrer l'investissement durable dans votre portefeuille</h2>
+                <ol>
+                    <li>Éduquez-vous : Apprenez les bases de l'investissement ESG et les différentes stratégies disponibles.</li>
+                    <li>Définissez vos objectifs : Déterminez quels aspects de la durabilité sont les plus importants pour vous.</li>
+                    <li>Recherchez des options : Explorez les fonds communs de placement, les ETF et les actions individuelles axés sur la durabilité.</li>
+                    <li>Diversifiez : N'oubliez pas de maintenir un portefeuille diversifié pour gérer les risques.</li>
+                    <li>Surveillez et ajustez : Suivez régulièrement la performance de vos investissements durables et ajustez si nécessaire.</li>
+                </ol>
+
+                <h2>Conclusion</h2>
+                <p>L'investissement durable offre une opportunité unique de générer des rendements financiers tout en contribuant à un avenir meilleur. Bien que ce domaine continue d'évoluer, il est clair que l'intégration de facteurs ESG dans les décisions d'investissement devient de plus en plus importante pour les investisseurs et les entreprises. En adoptant une approche d'investissement durable, vous pouvez non seulement potentiellement améliorer vos rendements à long terme, mais aussi jouer un rôle actif dans la création d'un monde plus durable et équitable.</p>
+            </div>
+
+            <div class="cta-section">
+                <h3>Prêt à explorer l'investissement durable ?</h3>
+                <p>Découvrez comment LAZONA peut vous aider à intégrer des stratégies d'investissement durables dans votre portefeuille.</p>
+                <a href="contacte.html" class="btn btn-primary">Contactez-nous</a>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="careers">Carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Add any necessary JavaScript here
+});
+</script>
+
+</body></html>

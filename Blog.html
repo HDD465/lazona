@@ -1,0 +1,468 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - LAZONA</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .btn-primary:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .container {
+        width: 80%;
+        margin: 100px auto 2rem;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .blog-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .blog-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .blog-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .blog-content {
+        padding: 1.5rem;
+    }
+    
+    .blog-title {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+    
+    .blog-excerpt {
+        color: var(--text-color);
+        margin-bottom: 1rem;
+    }
+    
+    .blog-meta {
+        display: flex;
+        justify-content: space-between;
+        color: #777;
+        font-size: 0.9rem;
+    }
+    
+    .read-more {
+        display: inline-block;
+        margin-top: 1rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .read-more:hover {
+        text-decoration: underline;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-icons a {
+        font-size: 1.5rem;
+        color: white;
+        transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .language-selector {
+            order: 1;
+        }
+        
+        .auth-buttons {
+            order: 2;
+        }
+        
+        .container {
+            width: 95%;
+        }
+        
+        .blog-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button" data-translate="home">Accueil</a></li>
+                    <li><a href="simulateur.html" class="nav-button" data-translate="simulator">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button" data-translate="loans">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button" data-translate="investment">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button" data-translate="about">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button" data-translate="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                    <option value="it">Italiano</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn btn-primary" data-translate="login">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary" data-translate="signup">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 data-translate="blog_title">Le Blog LAZONA</h1>
+        
+        <div class="blog-grid">
+            <div class="blog-card">
+                <img src="https://source.unsplash.com/random/800x600?finance" alt="Finance image" class="blog-image">
+                <div class="blog-content">
+                    <h2 class="blog-title" data-translate="blog_post_1_title">Les avantages du prêt participatif</h2>
+                    <p class="blog-excerpt" data-translate="blog_post_1_excerpt">Découvrez comment le prêt participatif peut être une alternative intéressante aux prêts bancaires traditionnels...</p>
+                    <div class="blog-meta">
+                        <span data-translate="blog_post_1_date">15 juin 2023</span>
+                        <span data-translate="blog_post_1_author">Par Marie Dubois</span>
+                    </div>
+                    <a href="#" class="read-more" data-translate="read_more">Lire la suite</a>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <img src="https://source.unsplash.com/random/800x600?investment" alt="Investment image" class="blog-image">
+                <div class="blog-content">
+                    <h2 class="blog-title" data-translate="blog_post_2_title">Investir intelligemment : les clés du succès</h2>
+                    <p class="blog-excerpt" data-translate="blog_post_2_excerpt">Quelles sont les stratégies gagnantes pour maximiser vos investissements ? Nos experts vous dévoilent leurs secrets...</p>
+                    <div class="blog-meta">
+                        <span data-translate="blog_post_2_date">10 juin 2023</span>
+                        <span data-translate="blog_post_2_author">Par Pierre Martin</span>
+                    </div>
+                    <a href="#" class="read-more" data-translate="read_more">Lire la suite</a>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <img src="https://source.unsplash.com/random/800x600?technology" alt="Technology image" class="blog-image">
+                <div class="blog-content">
+                    <h2 class="blog-title" data-translate="blog_post_3_title">La technologie au service de la finance</h2>
+                    <p class="blog-excerpt" data-translate="blog_post_3_excerpt">Comment la Fintech révolutionne-t-elle le secteur financier ? Plongez dans le monde de l'innovation financière...</p>
+                    <div class="blog-meta">
+                        <span data-translate="blog_post_3_date">5 juin 2023</span>
+                        <span data-translate="blog_post_3_author">Par Sophie Leroux</span>
+                    </div>
+                    <a href="#" class="read-more" data-translate="read_more">Lire la suite</a>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <img src="https://source.unsplash.com/random/800x600?economy" alt="Economy image" class="blog-image">
+                <div class="blog-content">
+                    <h2 class="blog-title" data-translate="blog_post_4_title">L'économie collaborative : un nouveau paradigme</h2>
+                    <p class="blog-excerpt" data-translate="blog_post_4_excerpt">Explorez les opportunités offertes par l'économie du partage et son impact sur le monde financier...</p>
+                    <div class="blog-meta">
+                        <span data-translate="blog_post_4_date">1 juin 2023</span>
+                        <span data-translate="blog_post_4_author">Par Lucas Bertrand</span>
+                    </div>
+                    <a href="#" class="read-more" data-translate="read_more">Lire la suite</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="useful_links">Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="careers">Carrières</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="contact_us">Nous contacter</h3>
+                <p>Email: contact@lazona.fr</p>
+                <p>Tél: +33 1 23 45 67 89</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="follow_us">Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <p>© 2023 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const translations = {
+        en: {
+            home: "Home",
+            simulator: "Simulator",
+            loans: "Our Loans",
+            investment: "Investment",
+            about: "About",
+            contact: "Contact",
+            login: "Login",
+            signup: "Sign Up",
+            blog_title: "LAZONA Blog",
+            blog_post_1_title: "The benefits of participatory lending",
+            blog_post_1_excerpt: "Discover how participatory lending can be an interesting alternative to traditional bank loans...",
+            blog_post_1_date: "June 15, 2023",
+            blog_post_1_author: "By Marie Dubois",
+            blog_post_2_title: "Investing wisely: keys to success",
+            blog_post_2_excerpt: "What are the winning strategies to maximize your investments? Our experts reveal their secrets...",
+            blog_post_2_date: "June 10, 2023",
+            blog_post_2_author: "By Pierre Martin",
+            blog_post_3_title: "Technology at the service of finance",
+            blog_post_3_excerpt: "How is Fintech revolutionizing the financial sector? Dive into the world of financial innovation...",
+            blog_post_3_date: "June 5, 2023",
+            blog_post_3_author: "By Sophie Leroux",
+            blog_post_4_title: "The collaborative economy: a new paradigm",
+            blog_post_4_excerpt: "Explore the opportunities offered by the sharing economy and its impact on the financial world...",
+            blog_post_4_date: "June 1, 2023",
+            blog_post_4_author: "By Lucas Bertrand",
+            read_more: "Read more",
+            useful_links: "Useful Links",
+            legal_notice: "Legal Notice",
+            privacy_policy: "Privacy Policy",
+            faq: "FAQ",
+            blog: "Blog",
+            careers: "Careers",
+            contact_us: "Contact Us",
+            follow_us: "Follow Us"
+        },
+        // Add other languages here
+    };
+
+    function translatePage(lang) {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+    }
+
+    document.getElementById('language-select').addEventListener('change', (e) => {
+        translatePage(e.target.value);
+    });
+
+    // Initialize with French
+    translatePage('fr');
+});
+</script>
+
+</body></html>

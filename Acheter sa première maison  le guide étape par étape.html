@@ -1,0 +1,304 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZONA - Acheter sa première maison : le guide étape par étape</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+        width: 80%;
+        max-width: 800px;
+        margin: 6rem auto 2rem;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        color: var(--secondary-color);
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    .article-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+
+    .step {
+        background-color: #f0f0f0;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+
+    .step h3 {
+        color: var(--primary-color);
+        margin-top: 0;
+    }
+
+    .tip {
+        background-color: #e1f5fe;
+        border-left: 4px solid var(--primary-color);
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .tip h4 {
+        color: var(--primary-color);
+        margin-top: 0;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .container {
+            width: 95%;
+            padding: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button">Accueil</a></li>
+                    <li><a href="simulateur.html" class="nav-button">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
+    </div>
+    </header>
+
+    <div class="container">
+        <h1>Acheter sa première maison : le guide étape par étape</h1>
+        
+        <img src="https://example.com/first-home-buyer-image.jpg" alt="Jeune couple recevant les clés de leur première maison" class="article-image" width="800" height="400">
+        
+        <p>L'achat de votre première maison est une étape importante dans votre vie. C'est à la fois excitant et stressant. Pour vous aider à naviguer dans ce processus, nous avons créé ce guide détaillé qui vous accompagnera à chaque étape.</p>
+        
+        <div class="step">
+            <h3>Étape 1 : Évaluez votre situation financière</h3>
+            <p>Avant de commencer à chercher une maison, il est crucial de comprendre votre situation financière. Calculez vos revenus, vos dépenses et vos économies. Vérifiez votre cote de crédit et essayez de réduire vos dettes existantes.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Étape 2 : Déterminez votre budget</h3>
+            <p>En fonction de votre situation financière, déterminez combien vous pouvez vous permettre de dépenser pour une maison. N'oubliez pas d'inclure non seulement le prix d'achat, mais aussi les coûts supplémentaires comme les taxes, l'assurance, l'entretien, etc.</p>
+        </div>
+        
+        <div class="tip">
+            <h4>Conseil : La règle des 28/36</h4>
+            <p>Une règle générale est que vos dépenses mensuelles liées au logement ne devraient pas dépasser 28% de votre revenu mensuel brut, et que le total de vos dettes mensuelles ne devrait pas dépasser 36%.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Étape 3 : Économisez pour l'apport initial</h3>
+            <p>La plupart des prêteurs exigent un apport initial. Bien que le montant standard soit de 20% du prix d'achat, il existe des options pour des apports moins élevés. Commencez à économiser dès que possible.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Étape 4 : Obtenez une pré-approbation de prêt</h3>
+            <p>Une pré-approbation vous donne une idée du montant que vous pouvez emprunter et montre aux vendeurs que vous êtes un acheteur sérieux. Comparez les offres de plusieurs prêteurs pour obtenir les meilleures conditions.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Étape 5 : Trouvez un agent immobilier</h3>
+            <p>Un bon agent immobilier peut vous guider tout au long du processus, vous aider à trouver des propriétés qui correspondent à vos critères et négocier en votre nom.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Étape 6 : Commencez votre recherche de maison</h3>
+            <p>Définissez vos critères (emplacement, taille, caractéristiques) et commencez à visiter des maisons. Prenez votre temps et ne vous précipitez pas dans une décision.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Étape 7 : Faites une offre et négociez</h3>
+            <p>Une fois que vous avez trouvé la maison parfaite, faites une offre. Votre agent vous aidera à déterminer un prix approprié et à négocier avec le vendeur.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Étape 8 : Passez à l'inspection et à l'évaluation</h3>
+            <p>Une fois votre offre acceptée, faites inspecter la maison par un professionnel pour détecter tout problème potentiel. Une évaluation sera également nécessaire pour confirmer la valeur de la propriété.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Étape 9 : Finalisez votre prêt</h3>
+            <p>Travaillez avec votre prêteur pour finaliser les détails de votre prêt hypothécaire. Assurez-vous de comprendre tous les termes et conditions.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Étape 10 : Clôturez la vente</h3>
+            <p>La dernière étape est la clôture, où vous signerez tous les documents nécessaires et recevrez les clés de votre nouvelle maison !</p>
+        </div>
+        
+        <div class="tip">
+            <h4>Conseil final</h4>
+            <p>L'achat d'une maison est un processus complexe, mais avec une bonne préparation et les bons professionnels à vos côtés, vous pouvez réaliser votre rêve de devenir propriétaire. N'hésitez pas à poser des questions à chaque étape du processus.</p>
+        </div>
+        
+        <p>Chez LAZONA, nous sommes là pour vous aider à chaque étape de votre parcours d'achat de maison. N'hésitez pas à nous contacter pour obtenir des conseils personnalisés ou pour en savoir plus sur nos options de prêts immobiliers.</p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="careers">Carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Add any necessary JavaScript here
+});
+</script>
+
+</body></html>

@@ -1,0 +1,487 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZONA - Guide de gestion des finances personnelles</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        list-style-type: none;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 80px 20px 20px;
+    }
+    
+    h1, h2, h3 {
+        color: var(--primary-color);
+    }
+    
+    .guide-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .guide-section {
+        margin-bottom: 2rem;
+    }
+    
+    .tip-box {
+        background-color: #e3f2fd;
+        border-left: 4px solid var(--primary-color);
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .action-box {
+        background-color: #e8f5e9;
+        border-left: 4px solid var(--secondary-color);
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .resource-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .resource-list li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .resource-list a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+    
+    .resource-list a:hover {
+        text-decoration: underline;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .logo {
+            margin-left: 0;
+            margin-bottom: 1rem;
+        }
+        
+        nav.main-nav {
+            width: 100%;
+            margin-left: 0;
+        }
+        
+        nav.main-nav ul {
+            flex-direction: column;
+        }
+        
+        nav.main-nav ul li {
+            margin: 0.5rem 0;
+        }
+        
+        .auth-buttons {
+            margin-top: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button">Accueil</a></li>
+                    <li><a href="Simulateur.html" class="nav-button">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn btn-primary">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Guide de gestion des finances personnelles</h1>
+        
+        <div class="guide-content">
+            <div class="guide-section">
+                <h2>Introduction à la gestion des finances personnelles</h2>
+                <p>La gestion des finances personnelles est un aspect crucial de notre vie quotidienne. Elle nous permet de prendre le contrôle de notre argent, d'atteindre nos objectifs financiers et de construire un avenir financier stable. Ce guide vous aidera à comprendre les principes fondamentaux de la gestion financière personnelle et à mettre en place des stratégies efficaces pour améliorer votre situation financière.</p>
+            </div>
+            
+            <div class="guide-section">
+                <h2>1. Établir un budget</h2>
+                <p>Un budget est la pierre angulaire d'une bonne gestion financière. Il vous permet de comprendre vos revenus et vos dépenses, et de prendre des décisions éclairées sur la façon dont vous utilisez votre argent.</p>
+                
+                <div class="tip-box">
+                    <h3>Conseil :</h3>
+                    <p>Utilisez la règle 50/30/20 : allouez 50% de vos revenus aux besoins essentiels, 30% aux désirs, et 20% à l'épargne et au remboursement des dettes.</p>
+                </div>
+                
+                <div class="action-box">
+                    <h3>Action :</h3>
+                    <p>Créez un tableau détaillé de vos revenus et dépenses mensuels. Identifiez les domaines où vous pouvez réduire vos dépenses.</p>
+                </div>
+            </div>
+            
+            <div class="guide-section">
+                <h2>2. Gérer et réduire vos dettes</h2>
+                <p>La gestion efficace des dettes est essentielle pour atteindre la stabilité financière. Concentrez-vous sur le remboursement des dettes à taux d'intérêt élevé en premier, tout en maintenant les paiements minimums sur les autres dettes.</p>
+                
+                <div class="tip-box">
+                    <h3>Conseil :</h3>
+                    <p>Envisagez la consolidation de vos dettes ou la négociation de taux d'intérêt plus bas avec vos créanciers.</p>
+                </div>
+                
+                <div class="action-box">
+                    <h3>Action :</h3>
+                    <p>Faites une liste de toutes vos dettes, y compris les soldes et les taux d'intérêt. Élaborez un plan de remboursement en commençant par les dettes les plus coûteuses.</p>
+                </div>
+            </div>
+            
+            <div class="guide-section">
+                <h2>3. Construire une épargne d'urgence</h2>
+                <p>Une épargne d'urgence vous protège contre les imprévus financiers et vous évite de recourir à l'endettement en cas de coup dur.</p>
+                
+                <div class="tip-box">
+                    <h3>Conseil :</h3>
+                    <p>Visez à épargner l'équivalent de 3 à 6 mois de dépenses dans un compte facilement accessible.</p>
+                </div>
+                
+                <div class="action-box">
+                    <h3>Action :</h3>
+                    <p>Ouvrez un compte d'épargne dédié et mettez en place un virement automatique mensuel pour alimenter votre fonds d'urgence.</p>
+                </div>
+            </div>
+            
+            <div class="guide-section">
+                <h2>4. Investir pour l'avenir</h2>
+                <p>L'investissement est un moyen puissant de faire fructifier votre argent à long terme. Il est important de comprendre les différentes options d'investissement et de choisir celles qui correspondent à vos objectifs et à votre tolérance au risque.</p>
+                
+                <div class="tip-box">
+                    <h3>Conseil :</h3>
+                    <p>Diversifiez vos investissements pour réduire les risques. Envisagez un mélange d'actions, d'obligations et d'autres classes d'actifs.</p>
+                </div>
+                
+                <div class="action-box">
+                    <h3>Action :</h3>
+                    <p>Commencez par investir dans un fonds indiciel à faible coût ou consultez un conseiller financier pour élaborer une stratégie d'investissement personnalisée.</p>
+                </div>
+            </div>
+            
+            <div class="guide-section">
+                <h2>5. Planifier pour la retraite</h2>
+                <p>La planification de la retraite est un processus à long terme qui nécessite une attention précoce et constante.</p>
+                
+                <div class="tip-box">
+                    <h3>Conseil :</h3>
+                    <p>Commencez à épargner pour votre retraite le plus tôt possible pour profiter des intérêts composés.</p>
+                </div>
+                
+                <div class="action-box">
+                    <h3>Action :</h3>
+                    <p>Renseignez-vous sur les options de retraite disponibles (PER, assurance-vie, etc.) et commencez à cotiser régulièrement.</p>
+                </div>
+            </div>
+            
+            <div class="guide-section">
+                <h2>6. Protéger vos finances</h2>
+                <p>La protection financière implique de se prémunir contre les risques qui pourraient compromettre votre stabilité financière.</p>
+                
+                <div class="tip-box">
+                    <h3>Conseil :</h3>
+                    <p>Assurez-vous d'avoir une couverture d'assurance adéquate (santé, habitation, automobile, vie) en fonction de votre situation personnelle.</p>
+                </div>
+                
+                <div class="action-box">
+                    <h3>Action :</h3>
+                    <p>Examinez vos polices d'assurance actuelles et identifiez les domaines où vous pourriez avoir besoin d'une couverture supplémentaire.</p>
+                </div>
+            </div>
+            
+            <div class="guide-section">
+                <h2>Conclusion</h2>
+                <p>La gestion efficace des finances personnelles est un processus continu qui nécessite de la discipline, de la patience et de l'apprentissage. En suivant les principes énoncés dans ce guide et en les adaptant à votre situation personnelle, vous serez sur la bonne voie pour atteindre vos objectifs financiers et construire un avenir financier solide.</p>
+            </div>
+            
+            <div class="guide-section">
+                <h2>Ressources supplémentaires</h2>
+                <ul class="resource-list">
+                    <li><a href="/outils/calculateur-budget">Calculateur de budget LAZONA</a></li>
+                    <li><a href="/blog/strategies-epargne">10 stratégies d'épargne efficaces</a></li>
+                    <li><a href="/guides/investissement-debutants">Guide d'investissement pour débutants</a></li>
+                    <li><a href="/webinaires/planification-retraite">Webinaire : Planifier sa retraite à tout âge</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="our_services">carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: contact@lazona.fr</li>
+                    <li>Téléphone: +33 1 23 45 67 89</li>
+                    <li>Adresse: 123 Rue de la Finance, 75001 Paris</li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const languageSelect = document.getElementById('language-select');
+    
+    languageSelect.addEventListener('change', (e) => {
+        const selectedLanguage = e.target.value;
+        // Implement language change logic here
+        console.log(`Language changed to ${selectedLanguage}`);
+        // You would typically reload the page or update the content dynamically here
+    });
+
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Add hover effect to tip and action boxes
+    const boxes = document.querySelectorAll('.tip-box, .action-box');
+    boxes.forEach(box => {
+        box.addEventListener('mouseenter', () => {
+            box.style.transform = 'scale(1.02)';
+            box.style.transition = 'transform 0.3s ease';
+        });
+        box.addEventListener('mouseleave', () => {
+            box.style.transform = 'scale(1)';
+        });
+    });
+
+    // Add a scroll-to-top button
+    const scrollTopButton = document.createElement('button');
+    scrollTopButton.innerHTML = '&uarr;';
+    scrollTopButton.setAttribute('style', `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+    `);
+    document.body.appendChild(scrollTopButton);
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollTopButton.style.display = 'block';
+        } else {
+            scrollTopButton.style.display = 'none';
+        }
+    });
+
+    scrollTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+</script>
+
+</body></html>

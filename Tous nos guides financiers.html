@@ -1,0 +1,451 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZONA - Tous nos guides | Conseils financiers et d'investissement</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .btn-primary:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .container {
+        width: 80%;
+        margin: 2rem auto;
+        padding-top: 60px;
+    }
+    
+    h1 {
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .guides-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .guide-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .guide-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .guide-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .guide-content {
+        padding: 1.5rem;
+    }
+    
+    .guide-title {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+    
+    .guide-excerpt {
+        color: #666;
+        margin-bottom: 1rem;
+    }
+    
+    .read-more {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .read-more:hover {
+        background-color: #1976D2;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .logo {
+            margin-left: 0;
+            margin-bottom: 1rem;
+        }
+        
+        nav.main-nav {
+            width: 100%;
+            margin-left: 0;
+        }
+        
+        nav.main-nav ul {
+            flex-direction: column;
+        }
+        
+        nav.main-nav ul li {
+            margin: 0.5rem 0;
+        }
+        
+        .auth-buttons {
+            margin-top: 1rem;
+        }
+        
+        .container {
+            width: 95%;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button">Accueil</a></li>
+                    <li><a href="Simulateur.html" class="nav-button">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button">Nos Prêts</a></li>
+                    <li><a href="/investissement" class="nav-button">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn btn-primary">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Tous nos guides financiers</h1>
+        <div class="guides-grid">
+            <div class="guide-card">
+                <img src="https://example.com/images/real-estate-guide.jpg" alt="Guide du prêt immobilier" class="guide-image">
+                <div class="guide-content">
+                    <h2 class="guide-title">Guide du prêt immobilier</h2>
+                    <p class="guide-excerpt">Tout ce que vous devez savoir pour réussir votre achat immobilier, de la recherche à la signature.</p>
+                    <a href="Guide complet du prêt immobilier.html" class="read-more">Lire le guide</a>
+                </div>
+            </div>
+            <div class="guide-card">
+                <img src="https://example.com/images/investment-guide.jpg" alt="Investir intelligemment" class="guide-image">
+                <div class="guide-content">
+                    <h2 class="guide-title">Investir intelligemment</h2>
+                    <p class="guide-excerpt">Nos conseils pour diversifier et optimiser votre portefeuille, minimiser les risques et maximiser les rendements.</p>
+                    <a href="Guide d'investissement intelligent.html" class="read-more">Lire le guide</a>
+                </div>
+            </div>
+            <div class="guide-card">
+                <img src="https://example.com/images/savings-guide.jpg" alt="Épargner efficacement" class="guide-image">
+                <div class="guide-content">
+                    <h2 class="guide-title">Épargner efficacement</h2>
+                    <p class="guide-excerpt">Stratégies pour maximiser votre épargne à court et long terme, et atteindre vos objectifs financiers.</p>
+                    <a href="Guide de l'épargne efficace.html" class="read-more">Lire le guide</a>
+                </div>
+            </div>
+            <div class="guide-card">
+                <img src="https://example.com/images/student-loan-guide.jpg" alt="Guide du prêt étudiant" class="guide-image">
+                <div class="guide-content">
+                    <h2 class="guide-title">Guide du prêt étudiant</h2>
+                    <p class="guide-excerpt">Comment financer vos études, comprendre les différentes options et gérer votre budget étudiant.</p>
+                    <a href="Guide du prêt étudiant.html" class="read-more">Lire le guide</a>
+                </div>
+            </div>
+            <div class="guide-card">
+                <img src="https://example.com/images/business-loan-guide.jpg" alt="Guide du prêt professionnel" class="guide-image">
+                <div class="guide-content">
+                    <h2 class="guide-title">Guide du prêt professionnel</h2>
+                    <p class="guide-excerpt">Tout ce que les entrepreneurs doivent savoir pour obtenir un financement et développer leur entreprise.</p>
+                    <a href="Guide du prêt professionnel.html" class="read-more">Lire le guide</a>
+                </div>
+            </div>
+            <div class="guide-card">
+                <img src="https://example.com/images/crypto-investment-guide.jpg" alt="Guide d'investissement en cryptomonnaies" class="guide-image">
+                <div class="guide-content">
+                    <h2 class="guide-title">Guide d'investissement en cryptomonnaies</h2>
+                    <p class="guide-excerpt">Comprendre les cryptomonnaies, leurs risques et opportunités, et comment les intégrer dans votre portefeuille.</p>
+                    <a href="Guide d'investissement en cryptomonnaies.html" class="read-more">Lire le guide</a>
+                </div>
+            </div>
+            <div class="guide-card">
+                <img src="https://example.com/images/personal-finance-guide.jpg" alt="Guide de gestion des finances personnelles" class="guide-image">
+                <div class="guide-content">
+                    <h2 class="guide-title">Guide de gestion des finances personnelles</h2>
+                    <p class="guide-excerpt">Apprenez à gérer efficacement votre budget, à réduire vos dettes et à planifier votre avenir financier.</p>
+                    <a href="Guide du prêt professionnel.html" class="read-more">Lire le guide</a>
+                </div>
+            </div>
+            <div class="guide-card">
+                <img src="https://example.com/images/stock-market-guide.jpg" alt="Guide d'investissement en bourse" class="guide-image">
+                <div class="guide-content">
+                    <h2 class="guide-title">Guide d'investissement en bourse</h2>
+                    <p class="guide-excerpt">Découvrez les bases de l'investissement en bourse, les stratégies gagnantes et comment construire un portefeuille solide.</p>
+                    <a href="Guide d'investissement en bourse.html" class="read-more">Lire le guide</a>
+                </div>
+            </div>
+            <div class="guide-card">
+                <img src="https://example.com/images/retirement-planning-guide.jpg" alt="Guide de planification de la retraite" class="guide-image">
+                <div class="guide-content">
+                    <h2 class="guide-title">Guide de planification de la retraite</h2>
+                    <p class="guide-excerpt">Préparez votre retraite sereinement avec nos conseils sur l'épargne, les investissements et la gestion du patrimoine.</p>
+                    <a href="Guide de planification de la retraite.html" class="read-more">Lire le guide</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="our_services">carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Nos services</h3>
+                <ul>
+                    <li><a href="nos prêts.html">Prêts</a></li>
+                    <li><a href="inversticement.html">Investissements</a></li>
+                    <li><a href="Solutions d'Assurance.html">Assurances</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: contact@lazona.fr</li>
+                    <li>Téléphone: +33 1 23 45 67 89</li>
+                    <li>Adresse: 123 Rue de la Finance, 75001 Paris</li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const languageSelect = document.getElementById('language-select');
+    
+    languageSelect.addEventListener('change', (e) => {
+        const selectedLanguage = e.target.value;
+        // Implement language change logic here
+        console.log(`Language changed to ${selectedLanguage}`);
+        // You would typically reload the page or update the content dynamically here
+    });
+
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Add hover effect to guide cards
+    const guideCards = document.querySelectorAll('.guide-card');
+    guideCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+            card.style.boxShadow = '0 6px 12px rgba(0,0,0,0.15)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+        });
+    });
+});
+</script>
+
+</body></html>

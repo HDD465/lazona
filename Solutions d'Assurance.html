@@ -1,0 +1,625 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZONA - Assurances | Des solutions sur mesure pour votre tranquillité</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .btn-primary:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .hero {
+        background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80') no-repeat center center/cover;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+        margin-top: 60px;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .insurance-types {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 3rem;
+    }
+
+    .insurance-type {
+        flex-basis: calc(33.333% - 2rem);
+        margin-bottom: 2rem;
+        background-color: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .insurance-type:hover {
+        transform: translateY(-5px);
+    }
+
+    .insurance-type h2 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .insurance-type ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .insurance-type ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .insurance-type ul li::before {
+        content: "✓";
+        color: var(--secondary-color);
+        margin-right: 0.5rem;
+    }
+
+    .cta {
+        text-align: center;
+        margin-top: 3rem;
+    }
+
+    .cta h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .faq {
+        margin-top: 3rem;
+    }
+
+    .faq h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .accordion {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .accordion-item {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+    }
+
+    .accordion-header {
+        padding: 1rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .accordion-content {
+        padding: 0 1rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .accordion-content.active {
+        padding: 1rem;
+        max-height: 1000px;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 3rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .language-selector {
+            order: 1;
+        }
+        
+        .auth-buttons {
+            order: 2;
+        }
+        
+        .hamburger {
+            order: 4;
+        }
+        
+        .insurance-type {
+            flex-basis: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button" data-translate="home">Accueil</a></li>
+                    <li><a href="Simulateur.html" class="nav-button" data-translate="simulator">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button" data-translate="loans">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button" data-translate="investment">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button" data-translate="about">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button" data-translate="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                    <option value="it">Italiano</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn btn-primary">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 data-translate="insurance_solutions">Solutions d'Assurance LAZONA</h1>
+            <p data-translate="insurance_subtitle">Protégez ce qui compte le plus avec nos assurances sur mesure</p>
+            <a href="#insurance-types" class="btn btn-primary" data-translate="discover_offers">Découvrir nos offres</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="insurance-types" class="insurance-types">
+            <div class="insurance-type">
+                <h2 data-translate="home_insurance">Assurance Habitation</h2>
+                <ul>
+                    <li data-translate="home_insurance_1">Protection contre les dégâts matériels</li>
+                    <li data-translate="home_insurance_2">Couverture responsabilité civile</li>
+                    <li data-translate="home_insurance_3">Assistance 24/7</li>
+                    <li data-translate="home_insurance_4">Options de personnalisation</li>
+                </ul>
+                <a href="/assurance-habitation" class="btn btn-secondary" data-translate="learn_more">En savoir plus</a>
+            </div>
+            <div class="insurance-type">
+                <h2 data-translate="car_insurance">Assurance Auto</h2>
+                <ul>
+                    <li data-translate="car_insurance_1">Garanties tous risques</li>
+                    <li data-translate="car_insurance_2">Assistance dépannage</li>
+                    <li data-translate="car_insurance_3">Protection du conducteur</li>
+                    <li data-translate="car_insurance_4">Options à la carte</li>
+                </ul>
+                <a href="/assurance-auto" class="btn btn-secondary" data-translate="learn_more">En savoir plus</a>
+            </div>
+            <div class="insurance-type">
+                <h2 data-translate="life_insurance">Assurance Vie</h2>
+                <ul>
+                    <li data-translate="life_insurance_1">Capital garanti</li>
+                    <li data-translate="life_insurance_2">Options d'investissement diversifiées</li>
+                    <li data-translate="life_insurance_3">Avantages fiscaux</li>
+                    <li data-translate="life_insurance_4">Flexibilité des versements</li>
+                </ul>
+                <a href="/assurance-vie" class="btn btn-secondary" data-translate="learn_more">En savoir plus</a>
+            </div>
+            <div class="insurance-type">
+                <h2 data-translate="health_insurance">Assurance Santé</h2>
+                <ul>
+                    <li data-translate="health_insurance_1">Couverture des frais médicaux</li>
+                    <li data-translate="health_insurance_2">Remboursements rapides</li>
+                    <li data-translate="health_insurance_3">Réseau de professionnels de santé</li>
+                    <li data-translate="health_insurance_4">Options de prévention</li>
+                </ul>
+                <a href="/assurance-sante" class="btn btn-secondary" data-translate="learn_more">En savoir plus</a>
+            </div>
+            <div class="insurance-type">
+                <h2 data-translate="pro_insurance">Assurance Professionnelle</h2>
+                <ul>
+                    <li data-translate="pro_insurance_1">Responsabilité civile professionnelle</li>
+                    <li data-translate="pro_insurance_2">Protection juridique</li>
+                    <li data-translate="pro_insurance_3">Couverture des locaux et équipements</li>
+                    <li data-translate="pro_insurance_4">Garantie perte d'exploitation</li>
+                </ul>
+                <a href="/assurance-professionnelle" class="btn btn-secondary" data-translate="learn_more">En savoir plus</a>
+            </div>
+            <div class="insurance-type">
+                <h2 data-translate="travel_insurance">Assurance Voyage</h2>
+                <ul>
+                    <li data-translate="travel_insurance_1">Couverture mondiale</li>
+                    <li data-translate="travel_insurance_2">Assistance médicale à l'étranger</li>
+                    <li data-translate="travel_insurance_3">Annulation et interruption de voyage</li>
+                    <li data-translate="travel_insurance_4">Protection des bagages</li>
+                </ul>
+                <a href="/assurance-voyage" class="btn btn-secondary" data-translate="learn_more">En savoir plus</a>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2 data-translate="why_choose_lazona">Pourquoi choisir LAZONA Assurances ?</h2>
+            <p data-translate="lazona_benefits">Des solutions personnalisées, un service client exceptionnel et des tarifs compétitifs.</p>
+            <a href="Obtenez votre devis personnalisé.html" class="btn btn-primary" data-translate="get_quote">Obtenir un devis gratuit</a>
+        </section>
+
+        <section class="faq">
+            <h2 data-translate="faq">Foire aux questions</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 data-translate="faq_1">Comment choisir la bonne assurance ?</h3>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p data-translate="faq_1_answer">Pour choisir la bonne assurance, évaluez vos besoins spécifiques, comparez les offres, et n'hésitez pas à contacter nos conseillers pour obtenir des recommandations personnalisées.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 data-translate="faq_2">Quels sont les délais de remboursement ?</h3>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p data-translate="faq_2_answer">Nos délais de remboursement sont parmi les plus rapides du marché. En général, vous pouvez vous attendre à un remboursement dans les 48 à 72 heures suivant la réception de votre dossier complet.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 data-translate="faq_3">Puis-je personnaliser mon contrat d'assurance ?</h3>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p data-translate="faq_3_answer">Absolument ! Chez LAZONA, nous croyons en la flexibilité. Vous pouvez personnaliser votre contrat en ajoutant ou en retirant des options selon vos besoins spécifiques.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 data-translate="faq_4">Comment déclarer un sinistre ?</h3>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p data-translate="faq_4_answer">Vous pouvez déclarer un sinistre en ligne via votre espace client, par téléphone à notre service dédié, ou directement dans l'une de nos agences. Nous vous accompagnerons tout au long du processus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="useful_links">Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="our_services">carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="our_products">Nos produits</h3>
+                <ul>
+                    <li><a href="nos prêts.html" data-translate="loans">Prêts</a></li>
+                    <li><a href="inversticement.html" data-translate="investments">Investissements</a></li>
+                    <li><a href="Solutions d'Assurance.html" data-translate="insurance">Assurances</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="contact_us">Nous contacter</h3>
+                <ul>
+                    <li>Tél : 01 23 45 67 89</li>
+                    <li>Email : contact@lazona.fr</li>
+                    <li>Adresse : 123 rue de la Finance, 75000 Paris</li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            const toggle = this.querySelector('.toggle');
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.classList.remove('active');
+                toggle.textContent = '+';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.classList.add('active');
+                toggle.textContent = '-';
+            }
+        });
+    });
+
+    const translations = {
+        en: {
+            home: "Home",
+            simulator: "Simulator",
+            loans: "Our Loans",
+            investment: "Investment",
+            about: "About",
+            contact: "Contact",
+            insurance_solutions: "LAZONA Insurance Solutions",
+            insurance_subtitle: "Protect what matters most with our tailored insurance",
+            discover_offers: "Discover our offers",
+            home_insurance: "Home Insurance",
+            home_insurance_1: "Protection against material damage",
+            home_insurance_2: "Civil liability coverage",
+            home_insurance_3: "24/7 assistance",
+            home_insurance_4: "Customization options",
+            car_insurance: "Car Insurance",
+            car_insurance_1: "All-risk guarantees",
+            car_insurance_2: "Breakdown assistance",
+            car_insurance_3: "Driver protection",
+            car_insurance_4: "À la carte options",
+            life_insurance: "Life Insurance",
+            life_insurance_1: "Guaranteed capital",
+            life_insurance_2: "Diverse investment options",
+            life_insurance_3: "Tax benefits",
+            life_insurance_4: "Flexible payments",
+            health_insurance: "Health Insurance",
+            health_insurance_1: "Medical expenses coverage",
+            health_insurance_2: "Fast reimbursements",
+            health_insurance_3: "Network of health professionals",
+            health_insurance_4: "Prevention options",
+            pro_insurance: "Professional Insurance",
+            pro_insurance_1: "Professional civil liability",
+            pro_insurance_2: "Legal protection",
+            pro_insurance_3: "Premises and equipment coverage",
+            pro_insurance_4: "Business interruption guarantee",
+            travel_insurance: "Travel Insurance",
+            travel_insurance_1: "Worldwide coverage",
+            travel_insurance_2: "Medical assistance abroad",
+            travel_insurance_3: "Trip cancellation and interruption",
+            travel_insurance_4: "Luggage protection",
+            learn_more: "Learn more",
+            why_choose_lazona: "Why choose LAZONA Insurance?",
+            lazona_benefits: "Personalized solutions, exceptional customer service, and competitive rates.",
+            get_quote: "Get a free quote",
+            faq: "Frequently Asked Questions",
+            faq_1: "How to choose the right insurance?",
+            faq_1_answer: "To choose the right insurance, assess your specific needs, compare offers, and don't hesitate to contact our advisors for personalized recommendations.",
+            faq_2: "What are the reimbursement times?",
+            faq_2_answer: "Our reimbursement times are among the fastest in the market. Generally, you can expect a reimbursement within 48 to 72 hours after receiving your complete file.",
+            faq_3: "Can I customize my insurance contract?",
+            faq_3_answer: "Absolutely! At LAZONA, we believe in flexibility. You can customize your contract by adding or removing options according to your specific needs.",
+            faq_4: "How to report a claim?",
+            faq_4_answer: "You can report a claim online via your customer area, by phone to our dedicated service, or directly in one of our agencies. We will accompany you throughout the process.",
+            useful_links: "Useful Links",
+            legal_notice: "Legal Notice",
+            privacy_policy: "Privacy Policy",
+            our_products: "Our Products",
+            loans: "Loans",
+            investments: "Investments",
+            insurance: "Insurance",
+            contact_us: "Contact Us"
+        }
+    };
+
+    function translatePage(lang) {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+    }
+
+    document.getElementById('language-select').addEventListener('change', (e) => {
+        translatePage(e.target.value);
+    });
+});
+</script>
+
+</body></html>

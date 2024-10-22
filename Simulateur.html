@@ -1,0 +1,1112 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulateur de Prêt et d'Investissement - LAZONA</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .btn-primary:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .container {
+        width: 80%;
+        margin: 6rem auto 2rem;
+        overflow: hidden;
+    }
+    
+    .simulator {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,.1);
+        margin-top: 2rem;
+    }
+    
+    .simulator h2 {
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+        text-align: center;
+    }
+    
+    .slider-container {
+        margin-bottom: 1rem;
+    }
+    
+    .slider {
+        -webkit-apparance: none;
+        width: 100%;
+        height: 10px;
+        border-radius: 5px;
+        background: #ddd;
+        outline: none;
+        opacity: 0.7;
+        transition: opacity .2s;
+    }
+    
+    .slider:hover {
+        opacity: 1;
+    }
+    
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        cursor: pointer;
+    }
+    
+    .slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        cursor: pointer;
+    }
+
+    .simulator-toggle {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+    }
+
+    .simulator-toggle button {
+        padding: 0.5rem 1rem;
+        border: none;
+        background-color: #f0f0f0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 0.25rem;
+    }
+
+    .simulator-content {
+        display: none;
+    }
+
+    .simulator-content.active {
+        display: block;
+    }
+
+    .result {
+        margin-top: 1rem;
+        padding: 1rem;
+        background-color: #e9ecef;
+        border-radius: 5px;
+    }
+
+    .result h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+
+    .chart-container {
+        width: 100%;
+        height: 300px;
+        margin-top: 2rem;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .footer-section {
+        flex: 1;
+        margin-bottom: 1rem;
+        min-width: 200px;
+    }
+
+    .footer-section h3 {
+        color: #fff;
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+        color: #fff;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-icon {
+        color: #fff;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .social-icon:hover {
+        color: var(--primary-color);
+    }
+
+    .newsletter-form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .newsletter-form input[type="email"] {
+        flex: 1;
+        min-width: 200px;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 4px;
+    }
+
+    .newsletter-form button {
+        padding: 0.5rem 1rem;
+        background-color: var(--primary-color);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+        background-color: #1976D2;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 1rem;
+        border-top: 1px solid #444;
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .language-selector {
+            order: 1;
+        }
+        
+        .auth-buttons {
+            order: 2;
+        }
+        
+        .container {
+            width: 95%;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button" data-translate="home">Accueil</a></li>
+                    <li><a href="Simulateur.html" class="nav-button" data-translate="simulator">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button" data-translate="loans">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button" data-translate="investment">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button" data-translate="about">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button" data-translate="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                    <option value="it">Italiano</option>
+                    <option value="pt">Português</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="ru">Русский</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn btn-primary">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="simulator">
+            <h2 data-translate="loan_investment_simulator">Simulateur de prêt et d'investissement</h2>
+            <div class="simulator-toggle">
+                <button id="personal-loan-toggle" class="active" data-translate="personal_loan">Prêt Personnel</button>
+                <button id="mortgage-toggle" data-translate="mortgage">Prêt Immobilier</button>
+                <button id="auto-loan-toggle" data-translate="auto_loan">Prêt Auto</button>
+                <button id="business-loan-toggle" data-translate="business_loan">Prêt Professionnel</button>
+                <button id="student-loan-toggle" data-translate="student_loan">Prêt Étudiant</button>
+                <button id="investment-toggle" data-translate="investment">Investissement</button>
+            </div>
+            <div id="personal-loan-simulator" class="simulator-content active">
+                <div class="slider-container">
+                    <label for="personal-loan-amount" data-translate="loan_amount">Montant du prêt : <span id="personal-loan-amount-value">50000</span> $ / <span id="personal-loan-amount-value-euro">47000</span> €</label>
+                    <input type="range" min="1000" max="1000000" value="50000" class="slider" id="personal-loan-amount">
+                </div>
+                <div class="slider-container">
+                    <label for="personal-loan-duration" data-translate="loan_duration">Durée du prêt : <span id="personal-loan-duration-value">60</span> mois</label>
+                    <input type="range" min="12" max="360" value="60" class="slider" id="personal-loan-duration">
+                </div>
+                <div class="slider-container">
+                    <label for="personal-loan-rate" data-translate="interest_rate">Taux d'intérêt : <span id="personal-loan-rate-value">5</span>%</label>
+                    <input type="range" min="1" max="20" value="5" step="0.1" class="slider" id="personal-loan-rate">
+                </div>
+                <div class="result">
+                    <h3 data-translate="loan_summary">Récapitulatif du prêt</h3>
+                    <p data-translate="monthly_payment">Mensualité estimée : <span id="personal-monthly-payment">0</span> $ / <span id="personal-monthly-payment-euro">0</span> €</p>
+                    <p data-translate="total_interest">Intérêts totaux : <span id="personal-total-interest">0</span> $ / <span id="personal-total-interest-euro">0</span> €</p>
+                    <p data-translate="total_amount">Montant total remboursé : <span id="personal-total-amount">0</span> $ / <span id="personal-total-amount-euro">0</span> €</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="personal-loan-chart"></canvas>
+                </div>
+            </div>
+            <div id="mortgage-simulator" class="simulator-content">
+                <div class="slider-container">
+                    <label for="mortgage-amount" data-translate="loan_amount">Montant du prêt immobilier : <span id="mortgage-amount-value">150000</span> $ / <span id="mortgage-amount-value-euro">141000</span> €</label>
+                    <input type="range" min="10000" max="2000000" value="150000" class="slider" id="mortgage-amount">
+                </div>
+                <div class="slider-container">
+                    <label for="mortgage-duration" data-translate="loan_duration">Durée du prêt immobilier : <span id="mortgage-duration-value">240</span> mois</label>
+                    <input type="range" min="12" max="360" value="240" class="slider" id="mortgage-duration">
+                </div>
+                <div class="slider-container">
+                    <label for="mortgage-rate" data-translate="interest_rate">Taux d'intérêt : <span id="mortgage-rate-value">3</span>%</label>
+                    <input type="range" min="1" max="20" value="3" step="0.1" class="slider" id="mortgage-rate">
+                </div>
+                <div class="result">
+                    <h3 data-translate="loan_summary">Récapitulatif du prêt immobilier</h3>
+                    <p data-translate="monthly_payment">Mensualité estimée : <span id="mortgage-monthly-payment">0</span> $ / <span id="mortgage-monthly-payment-euro">0</span> €</p>
+                    <p data-translate="total_interest">Intérêts totaux : <span id="mortgage-total-interest">0</span> $ / <span id="mortgage-total-interest-euro">0</span> €</p>
+                    <p data-translate="total_amount">Montant total remboursé : <span id="mortgage-total-amount">0</span> $ / <span id="mortgage-total-amount-euro">0</span> €</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="mortgage-chart"></canvas>
+                </div>
+            </div>
+            <div id="auto-loan-simulator" class="simulator-content">
+                <div class="slider-container">
+                    <label for="auto-loan-amount" data-translate="loan_amount">Montant du prêt auto : <span id="auto-loan-amount-value">20000</span> $ / <span id="auto-loan-amount-value-euro">18800</span> €</label>
+                    <input type="range" min="5000" max="100000" value="20000" class="slider" id="auto-loan-amount">
+                </div>
+                <div class="slider-container">
+                    <label for="auto-loan-duration" data-translate="loan_duration">Durée du prêt auto : <span id="auto-loan-duration-value">48</span> mois</label>
+                    <input type="range" min="12" max="120" value="48" class="slider" id="auto-loan-duration">
+                </div>
+                <div class="slider-container">
+                    <label for="auto-loan-rate" data-translate="interest_rate">Taux d'intérêt : <span id="auto-loan-rate-value">6</span>%</label>
+                    <input type="range" min="1" max="20" value="6" step="0.1" class="slider" id="auto-loan-rate">
+                </div>
+                <div class="result">
+                    <h3 data-translate="loan_summary">Récapitulatif du prêt auto</h3>
+                    <p data-translate="monthly_payment">Mensualité estimée : <span id="auto-monthly-payment">0</span> $ / <span id="auto-monthly-payment-euro">0</span> €</p>
+                    <p data-translate="total_interest">Intérêts totaux : <span id="auto-total-interest">0</span> $ / <span id="auto-total-interest-euro">0</span> €</p>
+                    <p data-translate="total_amount">Montant total remboursé : <span id="auto-total-amount">0</span> $ / <span id="auto-total-amount-euro">0</span> €</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="auto-loan-chart"></canvas>
+                </div>
+            </div>
+            <div id="business-loan-simulator" class="simulator-content">
+                <div class="slider-container">
+                    <label for="business-loan-amount" data-translate="loan_amount">Montant du prêt professionnel : <span id="business-loan-amount-value">50000</span> $ / <span id="business-loan-amount-value-euro">47000</span> €</label>
+                    <input type="range" min="1000" max="1000000" value="50000" class="slider" id="business-loan-amount">
+                </div>
+                <div class="slider-container">
+                    <label for="business-loan-duration" data-translate="loan_duration">Durée du prêt professionnel : <span id="business-loan-duration-value">36</span> mois</label>
+                    <input type="range" min="12" max="120" value="36" class="slider" id="business-loan-duration">
+                </div>
+                <div class="slider-container">
+                    <label for="business-loan-rate" data-translate="interest_rate">Taux d'intérêt : <span id="business-loan-rate-value">5</span>%</label>
+                    <input type="range" min="1" max="20" value="5" step="0.1" class="slider" id="business-loan-rate">
+                </div>
+                <div class="result">
+                    <h3 data-translate="loan_summary">Récapitulatif du prêt professionnel</h3>
+                    <p data-translate="monthly_payment">Mensualité estimée : <span id="business-monthly-payment">0</span> $ / <span id="business-monthly-payment-euro">0</span> €</p>
+                    <p data-translate="total_interest">Intérêts totaux : <span id="business-total-interest">0</span> $ / <span id="business-total-interest-euro">0</span> €</p>
+                    <p data-translate="total_amount">Montant total remboursé : <span id="business-total-amount">0</span> $ / <span id="business-total-amount-euro">0</span> €</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="business-loan-chart"></canvas>
+                </div>
+            </div>
+            <div id="student-loan-simulator" class="simulator-content">
+                <div class="slider-container">
+                    <label for="student-loan-amount" data-translate="loan_amount">Montant du prêt étudiant : <span id="student-loan-amount-value">20000</span> $ / <span id="student-loan-amount-value-euro">18800</span> €</label>
+                    <input type="range" min="1000" max="100000" value="20000" class="slider" id="student-loan-amount">
+                </div>
+                <div class="slider-container">
+                    <label for="student-loan-duration" data-translate="loan_duration">Durée du prêt étudiant : <span id="student-loan-duration-value">120</span> mois</label>
+                    <input type="range" min="12" max="240" value="120" class="slider" id="student-loan-duration">
+                </div>
+                <div class="slider-container">
+                    <label for="student-loan-rate" data-translate="interest_rate">Taux d'intérêt : <span id="student-loan-rate-value">4</span>%</label>
+                    <input type="range" min="1" max="15" value="4" step="0.1" class="slider" id="student-loan-rate">
+                </div>
+                <div class="result">
+                    <h3 data-translate="loan_summary">Récapitulatif du prêt étudiant</h3>
+                    <p data-translate="monthly_payment">Mensualité estimée : <span id="student-monthly-payment">0</span> $ / <span id="student-monthly-payment-euro">0</span> €</p>
+                    <p data-translate="total_interest">Intérêts totaux : <span id="student-total-interest">0</span> $ / <span id="student-total-interest-euro">0</span> €</p>
+                    <p data-translate="total_amount">Montant total remboursé : <span id="student-total-amount">0</span> $ / <span id="student-total-amount-euro">0</span> €</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="student-loan-chart"></canvas>
+                </div>
+            </div>
+            <div id="investment-simulator" class="simulator-content">
+                <div class="slider-container">
+                    <label for="investment-amount" data-translate="investment_amount">Montant de l'investissement : <span id="investment-amount-value">10000</span> $ / <span id="investment-amount-value-euro">9400</span> €</label>
+                    <input type="range" min="1000" max="1000000" value="10000" class="slider" id="investment-amount">
+                </div>
+                <div class="slider-container">
+                    <label for="investment-duration" data-translate="investment_duration">Durée de l'investissement : <span id="investment-duration-value">5</span> ans</label>
+                    <input type="range" min="1" max="40" value="5" class="slider" id="investment-duration">
+                </div>
+                <div class="slider-container">
+                    <label for="expected-return" data-translate="expected_return">Rendement annuel estimé : <span id="expected-return-value">5</span>%</label>
+                    <input type="range" min="1" max="20" value="5" step="0.1" class="slider" id="expected-return">
+                </div>
+                <div class="slider-container">
+                    <label for="investment-type" data-translate="investment_type">Type d'investissement :</label>
+                    <select id="investment-type">
+                        <option value="stocks" data-translate="stocks">Actions</option>
+                        <option value="bonds" data-translate="bonds">Obligations</option>
+                        <option value="real_estate" data-translate="real_estate">Immobilier</option>
+                        <option value="mutual_funds" data-translate="mutual_funds">Fonds Communs</option>
+                    </select>
+                </div>
+                <div class="result">
+                    <h3 data-translate="investment_summary">Récapitulatif de l'investissement</h3>
+                    <p data-translate="final_value">Valeur finale estimée : <span id="investment-value">0</span> $ / <span id="investment-value-euro">0</span> €</p>
+                    <p data-translate="total_earnings">Gains totaux : <span id="total-earnings">0</span> $ / <span id="total-earnings-euro">0</span> €</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="investment-chart"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="useful_links">Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="our_services">carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="contact_us">Nous contacter</h3>
+                <p>Email: contact@lazona.fr</p>
+                <p>Tél: +33 1 23 45 67 89</p>
+                <p>Adresse: 123 Rue de la Finance, 75001 Paris, France</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="follow_us">Suivez-nous</h3>
+                <div class="social-icons">
+             <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2016 LAZONA. <span data-translate="all_rights_reserved">Tous droits réservés.</span></p>
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const simulatorToggles = document.querySelectorAll('.simulator-toggle button');
+    const simulatorContents = document.querySelectorAll('.simulator-content');
+
+    simulatorToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            simulatorToggles.forEach(t => t.classList.remove('active'));
+            simulatorContents.forEach(c => c.classList.remove('active'));
+            
+            toggle.classList.add('active');
+            const simulatorId = toggle.id.replace('-toggle', '-simulator');
+            document.getElementById(simulatorId).classList.add('active');
+        });
+    });
+
+    const personalLoanAmountSlider = document.getElementById('personal-loan-amount');
+    const personalLoanDurationSlider = document.getElementById('personal-loan-duration');
+    const personalLoanRateSlider = document.getElementById('personal-loan-rate');
+    const personalLoanAmountValue = document.getElementById('personal-loan-amount-value');
+    const personalLoanAmountValueEuro = document.getElementById('personal-loan-amount-value-euro');
+    const personalLoanDurationValue = document.getElementById('personal-loan-duration-value');
+    const personalLoanRateValue = document.getElementById('personal-loan-rate-value');
+    const personalMonthlyPayment = document.getElementById('personal-monthly-payment');
+    const personalMonthlyPaymentEuro = document.getElementById('personal-monthly-payment-euro');
+    const personalTotalInterest = document.getElementById('personal-total-interest');
+    const personalTotalInterestEuro = document.getElementById('personal-total-interest-euro');
+    const personalTotalAmount = document.getElementById('personal-total-amount');
+    const personalTotalAmountEuro = document.getElementById('personal-total-amount-euro');
+
+    const mortgageAmountSlider = document.getElementById('mortgage-amount');
+    const mortgageDurationSlider = document.getElementById('mortgage-duration');
+    const mortgageRateSlider = document.getElementById('mortgage-rate');
+    const mortgageAmountValue = document.getElementById('mortgage-amount-value');
+    const mortgageAmountValueEuro = document.getElementById('mortgage-amount-value-euro');
+    const mortgageDurationValue = document.getElementById('mortgage-duration-value');
+    const mortgageRateValue = document.getElementById('mortgage-rate-value');
+    const mortgageMonthlyPayment = document.getElementById('mortgage-monthly-payment');
+    const mortgageMonthlyPaymentEuro = document.getElementById('mortgage-monthly-payment-euro');
+    const mortgageTotalInterest = document.getElementById('mortgage-total-interest');
+    const mortgageTotalInterestEuro = document.getElementById('mortgage-total-interest-euro');
+    const mortgageTotalAmount = document.getElementById('mortgage-total-amount');
+    const mortgageTotalAmountEuro = document.getElementById('mortgage-total-amount-euro');
+
+    const autoLoanAmountSlider = document.getElementById('auto-loan-amount');
+    const autoLoanDurationSlider = document.getElementById('auto-loan-duration');
+    const autoLoanRateSlider = document.getElementById('auto-loan-rate');
+    const autoLoanAmountValue = document.getElementById('auto-loan-amount-value');
+    const autoLoanAmountValueEuro = document.getElementById('auto-loan-amount-value-euro');
+    const autoLoanDurationValue = document.getElementById('auto-loan-duration-value');
+    const autoLoanRateValue = document.getElementById('auto-loan-rate-value');
+    const autoMonthlyPayment = document.getElementById('auto-monthly-payment');
+    const autoMonthlyPaymentEuro = document.getElementById('auto-monthly-payment-euro');
+    const autoTotalInterest = document.getElementById('auto-total-interest');
+    const autoTotalInterestEuro = document.getElementById('auto-total-interest-euro');
+    const autoTotalAmount = document.getElementById('auto-total-amount');
+    const autoTotalAmountEuro = document.getElementById('auto-total-amount-euro');
+
+    const businessLoanAmountSlider = document.getElementById('business-loan-amount');
+    const businessLoanDurationSlider = document.getElementById('business-loan-duration');
+    const businessLoanRateSlider = document.getElementById('business-loan-rate');
+    const businessLoanAmountValue = document.getElementById('business-loan-amount-value');
+    const businessLoanAmountValueEuro = document.getElementById('business-loan-amount-value-euro');
+    const businessLoanDurationValue = document.getElementById('business-loan-duration-value');
+    const businessLoanRateValue = document.getElementById('business-loan-rate-value');
+    const businessMonthlyPayment = document.getElementById('business-monthly-payment');
+    const businessMonthlyPaymentEuro = document.getElementById('business-monthly-payment-euro');
+    const businessTotalInterest = document.getElementById('business-total-interest');
+    const businessTotalInterestEuro = document.getElementById('business-total-interest-euro');
+    const businessTotalAmount = document.getElementById('business-total-amount');
+    const businessTotalAmountEuro = document.getElementById('business-total-amount-euro');
+
+    const studentLoanAmountSlider = document.getElementById('student-loan-amount');
+    const studentLoanDurationSlider = document.getElementById('student-loan-duration');
+    const studentLoanRateSlider = document.getElementById('student-loan-rate');
+    const studentLoanAmountValue = document.getElementById('student-loan-amount-value');
+    const studentLoanAmountValueEuro = document.getElementById('student-loan-amount-value-euro');
+    const studentLoanDurationValue = document.getElementById('student-loan-duration-value');
+    const studentLoanRateValue = document.getElementById('student-loan-rate-value');
+    const studentMonthlyPayment = document.getElementById('student-monthly-payment');
+    const studentMonthlyPaymentEuro = document.getElementById('student-monthly-payment-euro');
+    const studentTotalInterest = document.getElementById('student-total-interest');
+    const studentTotalInterestEuro = document.getElementById('student-total-interest-euro');
+    const studentTotalAmount = document.getElementById('student-total-amount');
+    const studentTotalAmountEuro = document.getElementById('student-total-amount-euro');
+
+    const investmentAmountSlider = document.getElementById('investment-amount');
+    const investmentDurationSlider = document.getElementById('investment-duration');
+    const expectedReturnSlider = document.getElementById('expected-return');
+    const investmentAmountValue = document.getElementById('investment-amount-value');
+    const investmentAmountValueEuro = document.getElementById('investment-amount-value-euro');
+    const investmentDurationValue = document.getElementById('investment-duration-value');
+    const expectedReturnValue = document.getElementById('expected-return-value');
+    const investmentValue = document.getElementById('investment-value');
+    const investmentValueEuro = document.getElementById('investment-value-euro');
+    const totalEarnings = document.getElementById('total-earnings');
+    const totalEarningsEuro = document.getElementById('total-earnings-euro');
+
+    let personalLoanChart, mortgageChart, autoLoanChart, businessLoanChart, studentLoanChart, investmentChart;
+
+    function updatePersonalLoanSimulator() {
+        const amount = parseFloat(personalLoanAmountSlider.value);
+        const duration = parseFloat(personalLoanDurationSlider.value);
+        const interestRate = parseFloat(personalLoanRateSlider.value) / 100;
+
+        const monthlyInterestRate = interestRate / 12;
+        const payment = (amount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, duration)) / (Math.pow(1 + monthlyInterestRate, duration) - 1);
+
+        const totalPayment = payment * duration;
+        const totalInterestPayment = totalPayment - amount;
+
+        personalLoanAmountValue.textContent = amount.toLocaleString('en-US');
+        personalLoanAmountValueEuro.textContent = (amount * 0.94).toLocaleString('fr-FR');
+        personalLoanDurationValue.textContent = duration;
+        personalLoanRateValue.textContent = (interestRate * 100).toFixed(1);
+        personalMonthlyPayment.textContent = payment.toFixed(2);
+        personalMonthlyPaymentEuro.textContent = (payment * 0.94).toFixed(2);
+        personalTotalInterest.textContent = totalInterestPayment.toFixed(2);
+        personalTotalInterestEuro.textContent = (totalInterestPayment * 0.94).toFixed(2);
+        personalTotalAmount.textContent = totalPayment.toFixed(2);
+        personalTotalAmountEuro.textContent = (totalPayment * 0.94).toFixed(2);
+
+        updatePersonalLoanChart(amount, totalInterestPayment);
+    }
+
+    function updateMortgageSimulator() {
+        const amount = parseFloat(mortgageAmountSlider.value);
+        const duration = parseFloat(mortgageDurationSlider.value);
+        const interestRate = parseFloat(mortgageRateSlider.value) / 100;
+
+        const monthlyInterestRate = interestRate / 12;
+        const payment = (amount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, duration)) / (Math.pow(1 + monthlyInterestRate, duration) - 1);
+
+        const totalPayment = payment * duration;
+        const totalInterestPayment = totalPayment - amount;
+
+        mortgageAmountValue.textContent = amount.toLocaleString('en-US');
+        mortgageAmountValueEuro.textContent = (amount * 0.94).toLocaleString('fr-FR');
+        mortgageDurationValue.textContent = duration;
+        mortgageRateValue.textContent = (interestRate * 100).toFixed(1);
+        mortgageMonthlyPayment.textContent = payment.toFixed(2);
+        mortgageMonthlyPaymentEuro.textContent = (payment * 0.94).toFixed(2);
+        mortgageTotalInterest.textContent = totalInterestPayment.toFixed(2);
+        mortgageTotalInterestEuro.textContent = (totalInterestPayment * 0.94).toFixed(2);
+        mortgageTotalAmount.textContent = totalPayment.toFixed(2);
+        mortgageTotalAmountEuro.textContent = (totalPayment * 0.94).toFixed(2);
+
+        updateMortgageChart(amount, totalInterestPayment);
+    }
+
+    function updateAutoLoanSimulator() {
+        const amount = parseFloat(autoLoanAmountSlider.value);
+        const duration = parseFloat(autoLoanDurationSlider.value);
+        const interestRate = parseFloat(autoLoanRateSlider.value) / 100;
+
+        const monthlyInterestRate = interestRate / 12;
+        const payment = (amount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, duration)) / (Math.pow(1 + monthlyInterestRate, duration) - 1);
+
+        const totalPayment = payment * duration;
+        const totalInterestPayment = totalPayment - amount;
+
+        autoLoanAmountValue.textContent = amount.toLocaleString('en-US');
+        autoLoanAmountValueEuro.textContent = (amount * 0.94).toLocaleString('fr-FR');
+        autoLoanDurationValue.textContent = duration;
+        autoLoanRateValue.textContent = (interestRate * 100).toFixed(1);
+        autoMonthlyPayment.textContent = payment.toFixed(2);
+        autoMonthlyPaymentEuro.textContent = (payment * 0.94).toFixed(2);
+        autoTotalInterest.textContent = totalInterestPayment.toFixed(2);
+        autoTotalInterestEuro.textContent = (totalInterestPayment * 0.94).toFixed(2);
+        autoTotalAmount.textContent = totalPayment.toFixed(2);
+        autoTotalAmountEuro.textContent = (totalPayment * 0.94).toFixed(2);
+
+        updateAutoLoanChart(amount, totalInterestPayment);
+    }
+
+    function updateBusinessLoanSimulator() {
+        const amount = parseFloat(businessLoanAmountSlider.value);
+        const duration = parseFloat(businessLoanDurationSlider.value);
+        const interestRate = parseFloat(businessLoanRateSlider.value) / 100;
+
+        const monthlyInterestRate = interestRate / 12;
+        const payment = (amount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, duration)) / (Math.pow(1 + monthlyInterestRate, duration) - 1);
+        
+        const totalPayment = payment * duration;
+        const totalInterestPayment = totalPayment - amount;
+
+        businessLoanAmountValue.textContent = amount.toLocaleString('en-US');
+        businessLoanAmountValueEuro.textContent = (amount * 0.94).toLocaleString('fr-FR');
+        businessLoanDurationValue.textContent = duration;
+        businessLoanRateValue.textContent = (interestRate * 100).toFixed(1);
+        businessMonthlyPayment.textContent = payment.toFixed(2);
+        businessMonthlyPaymentEuro.textContent = (payment * 0.94).toFixed(2);
+        businessTotalInterest.textContent = totalInterestPayment.toFixed(2);
+        businessTotalInterestEuro.textContent = (totalInterestPayment * 0.94).toFixed(2);
+        businessTotalAmount.textContent = totalPayment.toFixed(2);
+        businessTotalAmountEuro.textContent = (totalPayment * 0.94).toFixed(2);
+
+        updateBusinessLoanChart(amount, totalInterestPayment);
+    }
+
+    function updateStudentLoanSimulator() {
+        const amount = parseFloat(studentLoanAmountSlider.value);
+        const duration = parseFloat(studentLoanDurationSlider.value);
+        const interestRate = parseFloat(studentLoanRateSlider.value) / 100;
+
+        const monthlyInterestRate = interestRate / 12;
+        const payment = (amount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, duration)) / (Math.pow(1 + monthlyInterestRate, duration) - 1);
+
+        const totalPayment = payment * duration;
+        const totalInterestPayment = totalPayment - amount;
+
+        studentLoanAmountValue.textContent = amount.toLocaleString('en-US');
+        studentLoanAmountValueEuro.textContent = (amount * 0.94).toLocaleString('fr-FR');
+        studentLoanDurationValue.textContent = duration;
+        studentLoanRateValue.textContent = (interestRate * 100).toFixed(1);
+        studentMonthlyPayment.textContent = payment.toFixed(2);
+        studentMonthlyPaymentEuro.textContent = (payment * 0.94).toFixed(2);
+        studentTotalInterest.textContent = totalInterestPayment.toFixed(2);
+        studentTotalInterestEuro.textContent = (totalInterestPayment * 0.94).toFixed(2);
+        studentTotalAmount.textContent = totalPayment.toFixed(2);
+        studentTotalAmountEuro.textContent = (totalPayment * 0.94).toFixed(2);
+
+        updateStudentLoanChart(amount, totalInterestPayment);
+    }
+
+    function updateInvestmentSimulator() {
+        const amount = parseFloat(investmentAmountSlider.value);
+        const duration = parseFloat(investmentDurationSlider.value);
+        const returnRate = parseFloat(expectedReturnSlider.value) / 100;
+        const investmentType = document.getElementById('investment-type').value;
+
+        let adjustedReturnRate = returnRate;
+        switch (investmentType) {
+            case 'stocks':
+                adjustedReturnRate *= 1.2;
+                break;
+            case 'bonds':
+                adjustedReturnRate *= 0.8;
+                break;
+            case 'real_estate':
+                adjustedReturnRate *= 1.1;
+                break;
+            case 'mutual_funds':
+                adjustedReturnRate *= 1;
+                break;
+        }
+
+        const finalValue = amount * Math.pow(1 + adjustedReturnRate, duration);
+        const totalEarningsValue = finalValue - amount;
+
+        investmentAmountValue.textContent = amount.toLocaleString('en-US');
+        investmentAmountValueEuro.textContent = (amount * 0.94).toLocaleString('fr-FR');
+        investmentDurationValue.textContent = duration;
+        expectedReturnValue.textContent = (adjustedReturnRate * 100).toFixed(1);
+        investmentValue.textContent = finalValue.toFixed(2);
+        investmentValueEuro.textContent = (finalValue * 0.94).toFixed(2);
+        totalEarnings.textContent = totalEarningsValue.toFixed(2);
+        totalEarningsEuro.textContent = (totalEarningsValue * 0.94).toFixed(2);
+
+        updateInvestmentChart(amount, finalValue, duration, investmentType);
+    }
+
+    function updatePersonalLoanChart(principal, interest) {
+        const ctx = document.getElementById('personal-loan-chart').getContext('2d');
+        
+        if (personalLoanChart) {
+            personalLoanChart.destroy();
+        }
+
+        personalLoanChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Principal', 'Intérêts'],
+                datasets: [{
+                    data: [principal, interest],
+                    backgroundColor: ['#2196F3', '#4CAF50']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                title: {
+                    display: true,
+                    text: 'Répartition du remboursement'
+                }
+            }
+        });
+    }
+
+    function updateMortgageChart(principal, interest) {
+        const ctx = document.getElementById('mortgage-chart').getContext('2d');
+        
+        if (mortgageChart) {
+            mortgageChart.destroy();
+        }
+
+        mortgageChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Principal', 'Intérêts'],
+                datasets: [{
+                    data: [principal, interest],
+                    backgroundColor: ['#2196F3', '#4CAF50']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                title: {
+                    display: true,
+                    text: 'Répartition du remboursement'
+                }
+            }
+        });
+    }
+
+    function updateAutoLoanChart(principal, interest) {
+        const ctx = document.getElementById('auto-loan-chart').getContext('2d');
+        
+        if (autoLoanChart) {
+            autoLoanChart.destroy();
+        }
+
+        autoLoanChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Principal', 'Intérêts'],
+                datasets: [{
+                    data: [principal, interest],
+                    backgroundColor: ['#2196F3', '#4CAF50']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                title: {
+                    display: true,
+                    text: 'Répartition du remboursement'
+                }
+            }
+        });
+    }
+
+    function updateBusinessLoanChart(principal, interest) {
+        const ctx = document.getElementById('business-loan-chart').getContext('2d');
+        
+        if (businessLoanChart) {
+            businessLoanChart.destroy();
+        }
+
+        businessLoanChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Principal', 'Intérêts'],
+                datasets: [{
+                    data: [principal, interest],
+                    backgroundColor: ['#2196F3', '#4CAF50']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                title: {
+                    display: true,
+                    text: 'Répartition du remboursement'
+                }
+            }
+        });
+    }
+
+    function updateStudentLoanChart(principal, interest) {
+        const ctx = document.getElementById('student-loan-chart').getContext('2d');
+        
+        if (studentLoanChart) {
+            studentLoanChart.destroy();
+        }
+
+        studentLoanChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Principal', 'Intérêts'],
+                datasets: [{
+                    data: [principal, interest],
+                    backgroundColor: ['#2196F3', '#4CAF50']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                title: {
+                    display: true,
+                    text: 'Répartition du remboursement'
+                }
+            }
+        });
+    }
+
+    function updateInvestmentChart(initialAmount, finalAmount, duration, investmentType) {
+        const ctx = document.getElementById('investment-chart').getContext('2d');
+        
+        if (investmentChart) {
+            investmentChart.destroy();
+        }
+
+        const labels = Array.from({length: duration + 1}, (_, i) => i);
+        const data = labels.map(year => initialAmount * Math.pow(1 + parseFloat(expectedReturnSlider.value) / 100, year));
+
+        investmentChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Valeur de l\'investissement',
+                    data: data,
+                    borderColor: '#2196F3',
+                    backgroundColor: 'rgba(33, 150, 243, 0.1)',
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value, index, values) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Croissance de l\'investissement au fil du temps (' + investmentType + ')'
+                }
+            }
+        });
+    }
+
+    personalLoanAmountSlider.addEventListener('input', updatePersonalLoanSimulator);
+    personalLoanDurationSlider.addEventListener('input', updatePersonalLoanSimulator);
+    personalLoanRateSlider.addEventListener('input', updatePersonalLoanSimulator);
+
+    mortgageAmountSlider.addEventListener('input', updateMortgageSimulator);
+    mortgageDurationSlider.addEventListener('input', updateMortgageSimulator);
+    mortgageRateSlider.addEventListener('input', updateMortgageSimulator);
+
+    autoLoanAmountSlider.addEventListener('input', updateAutoLoanSimulator);
+    autoLoanDurationSlider.addEventListener('input', updateAutoLoanSimulator);
+    autoLoanRateSlider.addEventListener('input', updateAutoLoanSimulator);
+
+    businessLoanAmountSlider.addEventListener('input', updateBusinessLoanSimulator);
+    businessLoanDurationSlider.addEventListener('input', updateBusinessLoanSimulator);
+    businessLoanRateSlider.addEventListener('input', updateBusinessLoanSimulator);
+
+    studentLoanAmountSlider.addEventListener('input', updateStudentLoanSimulator);
+    studentLoanDurationSlider.addEventListener('input', updateStudentLoanSimulator);
+    studentLoanRateSlider.addEventListener('input', updateStudentLoanSimulator);
+
+    investmentAmountSlider.addEventListener('input', updateInvestmentSimulator);
+    investmentDurationSlider.addEventListener('input', updateInvestmentSimulator);
+    expectedReturnSlider.addEventListener('input', updateInvestmentSimulator);
+    document.getElementById('investment-type').addEventListener('change', updateInvestmentSimulator);
+
+    updatePersonalLoanSimulator();
+    updateMortgageSimulator();
+    updateAutoLoanSimulator();
+    updateBusinessLoanSimulator();
+    updateStudentLoanSimulator();
+    updateInvestmentSimulator();
+
+    const translations = {
+        en: {
+            home: "Home",
+            simulator: "Simulator",
+            loans: "Our Loans",
+            investment: "Investment",
+            about: "About",
+            contact: "Contact",
+            loan_investment_simulator: "Loan and Investment Simulator",
+            personal_loan: "Personal Loan",
+            mortgage: "Mortgage",
+            auto_loan: "Auto Loan",
+            business_loan: "Business Loan",
+            student_loan: "Student Loan",
+            investment: "Investment",
+            loan_amount: "Loan amount: ",
+            loan_duration: "Loan duration: ",
+            interest_rate: "Interest rate: ",
+            loan_summary: "Loan Summary",
+            monthly_payment: "Estimated monthly payment: ",
+            total_interest: "Total interest: ",
+            total_amount: "Total amount repaid: ",
+            investment_amount: "Investment amount: ",
+            investment_duration: "Investment duration: ",
+            expected_return: "Expected annual return: ",
+            investment_type: "Investment Type:",
+            investment_summary: "Investment Summary",
+            final_value: "Estimated final value: ",
+            total_earnings: "Total earnings: ",
+            useful_links: "Useful Links",
+            our_services: "Our Services",
+            blog: "Blog",
+            contact_us: "Contact Us",
+            follow_us: "Follow Us",
+            newsletter: "Newsletter",
+            subscribe: "Subscribe",
+            all_rights_reserved: "All rights reserved."
+        },
+    };
+
+    function translatePage(lang) {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+    }
+
+    document.getElementById('language-select').addEventListener('change', (e) => {
+        translatePage(e.target.value);
+    });
+
+    translatePage('fr');
+});
+</script>
+
+</body></html>

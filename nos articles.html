@@ -1,0 +1,332 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZONA - Tous nos articles</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .container {
+        width: 80%;
+        margin: 6rem auto 2rem;
+        overflow: hidden;
+    }
+
+    .article-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .article-item {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .article-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .article-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .article-item h3 {
+        font-size: 1.2rem;
+        margin: 1rem;
+        color: var(--primary-color);
+    }
+
+    .article-item p {
+        font-size: 0.9rem;
+        margin: 0 1rem 1rem;
+        color: var(--text-color);
+    }
+
+    .article-item .btn {
+        display: block;
+        width: calc(100% - 2rem);
+        margin: 1rem;
+        text-align: center;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .btn-secondary:hover {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        nav {
+            order: 3;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .container {
+            width: 95%;
+        }
+        
+        .article-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button" data-translate="home">Accueil</a></li>
+                    <li><a href="simulateur.html" class="nav-button" data-translate="simulator">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button" data-translate="loans">Nos Prêts</a></li>
+                    <li><a href="inversticement.html" class="nav-button" data-translate="investment">Investissement</a></li>
+                    <li><a href="à propos.html" class="nav-button" data-translate="about">À Propos</a></li>
+                    <li><a href="contacte.html" class="nav-button" data-translate="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Tous nos articles</h1>
+        <div class="article-grid">
+            <div class="article-item">
+                <img src="https://example.com/article1-image.jpg" alt="Image illustrant les tendances du marché immobilier" width="300" height="200">
+                <h3>Les tendances du marché immobilier en 2023</h3>
+                <p>Découvrez les dernières tendances du marché immobilier et comment elles peuvent influencer votre décision d'investissement.</p>
+                <a href="Les tendances du marché immobilier en 2023.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+            <div class="article-item">
+                <img src="https://example.com/article2-image.jpg" alt="Image illustrant l'épargne et l'investissement" width="300" height="200">
+                <h3>5 stratégies d'épargne pour les jeunes investisseurs</h3>
+                <p>Apprenez comment maximiser votre épargne et commencer à investir intelligemment, même avec un budget limité.</p>
+                <a href="5 stratégies d'épargne pour les jeunes investisseurs.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+            <div class="article-item">
+                <img src="https://example.com/article3-image.jpg" alt="Image illustrant la crypto-monnaie" width="300" height="200">
+                <h3>Crypto-monnaies : risques et opportunités</h3>
+                <p>Plongez dans le monde des crypto-monnaies et comprenez les avantages et les risques associés à cet investissement moderne.</p>
+                <a href="Crypto-monnaies  risques et opportunités.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+            <div class="article-item">
+                <img src="https://example.com/article4-image.jpg" alt="Image illustrant la gestion de dette" width="300" height="200">
+                <h3>Comment gérer efficacement vos dettes</h3>
+                <p>Des conseils pratiques pour rembourser vos dettes plus rapidement et améliorer votre santé financière.</p>
+                <a href="Comment gérer efficacement vos dettes.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+            <div class="article-item">
+                <img src="https://example.com/article5-image.jpg" alt="Image illustrant l'investissement durable" width="300" height="200">
+                <h3>L'investissement durable : concilier profit et impact positif</h3>
+                <p>Explorez comment l'investissement socialement responsable peut générer des rendements tout en contribuant à un monde meilleur.</p>
+                <a href="L'investissement durable  concilier profit et impact positif.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+            <div class="article-item">
+                <img src="https://example.com/article6-image.jpg" alt="Image illustrant la planification de la retraite" width="300" height="200">
+                <h3>Planifier sa retraite : commencez dès maintenant</h3>
+                <p>Découvrez pourquoi il est crucial de commencer tôt la planification de votre retraite et les stratégies pour y parvenir.</p>
+                <a href="Planifier sa retraite  commencez dès maintenant.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+            <div class="article-item">
+                <img src="https://example.com/article7-image.jpg" alt="Image illustrant les prêts étudiants" width="300" height="200">
+                <h3>Guide complet des prêts étudiants</h3>
+                <p>Tout ce que vous devez savoir sur les prêts étudiants : types, conditions, remboursement et alternatives.</p>
+                <a href="Guide complet des prêts étudiants.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+            <div class="article-item">
+                <img src="https://example.com/article8-image.jpg" alt="Image illustrant l'achat de sa première maison" width="300" height="200">
+                <h3>Acheter sa première maison : le guide étape par étape</h3>
+                <p>Un guide complet pour les primo-accédants, de la recherche de propriété à la signature finale.</p>
+                <a href="Acheter sa première maison  le guide étape par étape.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+            <div class="article-item">
+                <img src="https://example.com/article9-image.jpg" alt="Image illustrant la diversification de portefeuille" width="300" height="200">
+                <h3>L'art de la diversification de portefeuille</h3>
+                <p>Apprenez comment répartir vos investissements pour optimiser les rendements et minimiser les risques.</p>
+                <a href="L'art de la diversification de portefeuille.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+            <div class="article-item">
+                <img src="https://example.com/article10-image.jpg" alt="Image illustrant l'économie circulaire" width="300" height="200">
+                <h3>Investir dans l'économie circulaire</h3>
+                <p>Découvrez les opportunités d'investissement dans les entreprises qui adoptent des modèles économiques durables.</p>
+                <a href="Investir dans l'économie circulaire.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+            <div class="article-item">
+                <img src="https://example.com/article11-image.jpg" alt="Image illustrant l'intelligence artificielle" width="300" height="200">
+                <h3>L'impact de l'IA sur l'industrie financière</h3>
+                <p>Explorez comment l'intelligence artificielle transforme les services bancaires, l'investissement et la gestion des risques.</p>
+                <a href="L'impact de l'IA sur l'industrie financière.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+            <div class="article-item">
+                <img src="https://example.com/article12-image.jpg" alt="Image illustrant l'épargne pour les enfants" width="300" height="200">
+                <h3>Épargner pour l'avenir de vos enfants</h3>
+                <p>Des stratégies efficaces pour constituer un capital pour l'éducation et l'avenir de vos enfants.</p>
+                <a href="Épargner pour l'avenir de vos enfants.html" class="btn btn-secondary">Lire plus</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="careers">Carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Add any necessary JavaScript here
+});
+</script>
+
+</body></html>

@@ -1,0 +1,467 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZONA - Guide de l'épargne efficace | Conseils et stratégies</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<style>
+    :root {
+        --primary-color: #2196F3;
+        --secondary-color: #4CAF50;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    header {
+        background: linear-gradient(to right, #2196F3, #21CBF3);
+        box-shadow: 0 2px 10px rgba(0,0,0,.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 2% 0.5rem 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-right: 2rem;
+        margin-left: -10rem;
+    }
+    
+    nav.main-nav {
+        flex-grow: 1;
+        margin-left: 2rem;
+    }
+
+    nav.main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    
+    nav.main-nav ul li {
+        margin: 0 10px;
+    }
+    
+    nav.main-nav ul li a.nav-button {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav.main-nav ul li a.nav-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-selector {
+        margin-right: 20px;
+    }
+
+    #language-select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    #language-select option {
+        background-color: var(--primary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        margin-left: 10px;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .btn-primary:hover {
+        background-color: #f8f9fa;
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .container {
+        width: 80%;
+        margin: 2rem auto;
+        padding-top: 80px;
+    }
+    
+    h1, h2, h3 {
+        color: var(--primary-color);
+    }
+    
+    .guide-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .guide-section {
+        margin-bottom: 2rem;
+    }
+    
+    .savings-tips {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .savings-tips li {
+        margin-bottom: 1rem;
+        padding-left: 30px;
+        position: relative;
+    }
+    
+    .savings-tips li:before {
+        content: '\f058';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: var(--secondary-color);
+    }
+    
+    .cta-box {
+        background-color: #e9ecef;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        text-align: center;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--secondary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    
+    .cta-button:hover {
+        background-color: #45a049;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-section {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .logo {
+            margin-left: 0;
+            margin-bottom: 1rem;
+        }
+        
+        nav.main-nav {
+            width: 100%;
+            margin-left: 0;
+        }
+        
+        nav.main-nav ul {
+            flex-direction: column;
+        }
+        
+        nav.main-nav ul li {
+            margin: 0.5rem 0;
+        }
+        
+        .auth-buttons {
+            margin-top: 1rem;
+        }
+        
+        .container {
+            width: 95%;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">LAZONA</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="accueil.html" class="nav-button">Accueil</a></li>
+                    <li><a href="Simulateur.html" class="nav-button">Simulateur</a></li>
+                    <li><a href="nos prêts.html" class="nav-button">Nos Prêts</a></li>
+                    <li><a href="/investissement" class="nav-button">Investissement</a></li>
+                    <li><a href="/a-propos" class="nav-button">À Propos</a></li>
+                    <li><a href="/contact" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn btn-primary">Connexion</a>
+                <a href="inscription.html" class="btn btn-secondary">Inscription</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Guide de l'épargne efficace</h1>
+        <div class="guide-content">
+            <div class="guide-section">
+                <h2>Pourquoi épargner est important</h2>
+                <p>L'épargne est la clé de votre sécurité financière et de votre liberté future. Elle vous permet de :</p>
+                <ul>
+                    <li>Faire face aux imprévus</li>
+                    <li>Réaliser vos projets à moyen et long terme</li>
+                    <li>Préparer votre retraite</li>
+                    <li>Réduire votre stress financier</li>
+                </ul>
+            </div>
+            
+            <div class="guide-section">
+                <h2>Les bases de l'épargne efficace</h2>
+                <h3>1. Définissez vos objectifs</h3>
+                <p>Avant de commencer à épargner, définissez clairement vos objectifs financiers. Sont-ils à court, moyen ou long terme ? Cela vous aidera à choisir les bons produits d'épargne.</p>
+                
+                <h3>2. Créez un budget</h3>
+                <p>Un budget vous permet de voir clairement vos revenus et vos dépenses. C'est la première étape pour identifier les domaines où vous pouvez réduire vos dépenses et augmenter votre épargne.</p>
+                
+                <h3>3. Automatisez votre épargne</h3>
+                <p>Mettez en place des virements automatiques vers vos comptes d'épargne dès que vous recevez votre salaire. Ce qui n'est pas vu n'est pas dépensé !</p>
+                
+                <h3>4. Diversifiez vos placements</h3>
+                <p>Ne mettez pas tous vos œufs dans le même panier. Répartissez votre épargne entre différents produits en fonction de vos objectifs et de votre tolérance au risque.</p>
+            </div>
+            
+            <div class="guide-section">
+                <h2>Astuces pour épargner plus</h2>
+                <ul class="savings-tips">
+                    <li>Suivez la règle des 50/30/20 : 50% de vos revenus pour les besoins essentiels, 30% pour les envies, 20% pour l'épargne.</li>
+                    <li>Réduisez vos dépenses superflues : abonnements inutiles, achats impulsifs, etc.</li>
+                    <li>Comparez les prix avant d'acheter, surtout pour les gros achats.</li>
+                    <li>Utilisez des applications de suivi budgétaire pour mieux gérer vos dépenses.</li>
+                    <li>Pensez à arrondir vos dépenses à l'euro supérieur et épargnez la différence.</li>
+                    <li>Fixez-vous des défis d'épargne : par exemple, un mois sans achat non essentiel.</li>
+                </ul>
+            </div>
+            
+            <div class="guide-section">
+                <h2>Les différents produits d'épargne</h2>
+                <h3>Livret A</h3>
+                <p>Idéal pour l'épargne de précaution. Taux réglementé, sans risque, disponible à tout moment.</p>
+                
+                <h3>Plan d'Épargne Logement (PEL)</h3>
+                <p>Pour préparer un projet immobilier à moyen terme. Taux garanti, possibilité d'obtenir un prêt immobilier.</p>
+                
+                <h3>Assurance-vie</h3>
+                <p>Excellent pour l'épargne à long terme et la transmission de patrimoine. Offre une grande flexibilité dans les supports d'investissement.</p>
+                
+                <h3>Plan d'Épargne en Actions (PEA)</h3>
+                <p>Pour investir en actions avec un cadre fiscal avantageux. Adapté aux investisseurs prêts à prendre des risques pour un potentiel de rendement plus élevé.</p>
+            </div>
+            
+            <div class="cta-box">
+                <h3>Prêt à optimiser votre épargne ?</h3>
+                <p>Nos conseillers sont là pour vous aider à mettre en place une stratégie d'épargne personnalisée.</p>
+                <a href="/rendez-vous" class="cta-button">Prendre rendez-vous</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <ul>
+                    <li><a href="mention légal.html" data-translate="legal_notice">Mentions légales</a></li>
+                    <li><a href="Politique de Confidentialité.html" data-translate="privacy_policy">Politique de confidentialité</a></li>
+                    <li><a href="FAQ.html" data-translate="faq">FAQ</a></li>
+                    <li><a href="carrières.html" data-translate="our_services">carrières</a></li>
+                    <li><a href="Blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Nos services</h3>
+                <ul>
+                    <li><a href="nos prêts.html">Prêts</a></li>
+                    <li><a href="inversticement.html">Investissements</a></li>
+                    <li><a href="Solutions d'Assurance.html">Assurances</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: contact@lazona.fr</li>
+                    <li>Téléphone: +33 1 23 45 67 89</li>
+                    <li>Adresse: 123 Rue de la Finance, 75001 Paris</li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2016 LAZONA. Tous droits réservés.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const languageSelect = document.getElementById('language-select');
+    
+    languageSelect.addEventListener('change', (e) => {
+        const selectedLanguage = e.target.value;
+        // Implement language change logic here
+        console.log(`Language changed to ${selectedLanguage}`);
+        // You would typically reload the page or update the content dynamically here
+    });
+
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Add hover effect to CTA button
+    const ctaButton = document.querySelector('.cta-button');
+    ctaButton.addEventListener('mouseenter', () => {
+        ctaButton.style.backgroundColor = '#3d8b40';
+    });
+    ctaButton.addEventListener('mouseleave', () => {
+        ctaButton.style.backgroundColor = va(--secondary-color);
+    });
+
+    // Add a savings calculator
+    const calculatorHtml = `
+        <div id="savings-calculator" style="margin-top: 2rem; padding: 1rem; background-color: #f1f3f5; border-radius: 8px;">
+            <h3>Calculateur d'épargne</h3>
+            <div>
+                <label for="monthly-savings">Épargne mensuelle (€):</label>
+                <input type="number" id="monthly-savings" min="0" step="10" value="100">
+            </div>
+            <div>
+                <label for="interest-rate">Taux d'intérêt annuel (%):</label>
+                <input type="number" id="interest-rate" min="0" max="20" step="0.1" value="2">
+            </div>
+            <div>
+                <label for="years">Nombre d'années:</label>
+                <input type="number" id="years" min="1" max="50" value="10">
+            </div>
+            <button id="calculate-savings">Calculer</button>
+            <p id="savings-result"></p>
+        </div>
+    `;
+    
+    document.querySelector('.guide-content').insertAdjacentHTML('beforeend', calculatorHtml);
+
+    document.getElementById('calculate-savings').addEventListener('click', () => {
+        const monthlySavings = parseFloat(document.getElementById('monthly-savings').value);
+        const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
+        const years = parseInt(document.getElementById('years').value);
+        const months = years * 12;
+
+        const futureValue = monthlySavings * (Math.pow(1 + interestRate, months) - 1) / interestRate;
+        
+        document.getElementById('savings-result').textContent = `Après ${years} ans, votre épargne s'élèvera à environ ${futureValue.toFixed(2)} €.`;
+    });
+});
+</script>
+
+</body></html>
